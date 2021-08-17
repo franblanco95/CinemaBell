@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { AddItem } from './components/AddItem';
+import Drawer from './components/Drawer';
 import { List } from './components/Lista';
 import { ModalItem } from './components/Modal';
 
@@ -44,6 +45,7 @@ export default function App() {
     <View style={styles.container}>
       <StatusBar style="auto" />
 
+
       <AddItem
         textInput={textInput}
         handleAddPress={handleAddPress}
@@ -54,6 +56,8 @@ export default function App() {
         itemList={itemList}
         handleModalOpen={handleModalOpen}
       />
+
+      <Drawer />
 
       <ModalItem
         modalVisible={modalVisible}
