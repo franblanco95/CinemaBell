@@ -25,6 +25,10 @@ export default function App() {
     setTextInput('');
   }
 
+  const closeModal = () => {
+    setModalVisible(false);
+  }
+
   const removeItem = () => {
     setItemList(itemList.filter(item => item.id !== itemSelected.id));
     setItemSelected({});
@@ -55,6 +59,7 @@ export default function App() {
         modalVisible={modalVisible}
         itemSelected={itemSelected}
         removeItem={removeItem}
+        closeModal={closeModal}
       />
 
     </View>
