@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Text, Image, ScrollView } from 'react-native';
 import { AddItem } from './components/AddItem';
-import { MyCarousel } from './components/Carousel';
+import { Cartelera } from './components/Carousel';
 import { List } from './components/Lista';
 import { ModalItem } from './components/Modal';
-import { Drawer } from './components/Drawer';
 
 export default function App() {
 
@@ -23,16 +22,44 @@ export default function App() {
       id: 1,
       name: "No Respires II",
       location: "Cinema La Plata",
-      img: "./assets/norespires.jpg",
+      img: require("./assets/norespires.jpg"),
       price: 255,
     },
 
     {
       id: 2,
-      name: "Rapido y Furioso",
+      name: "Un Lugar en Silencio",
       location: "Cinema La Plata",
-      img: "./assets/lugarsilencio.jpg",
+      img: require("./assets/lugarsilencio.jpg"),
       price: 249,
+    },
+    {
+      id: 3,
+      name: "El Bosque Maldito",
+      location: "Cinema La Plata",
+      img: require("./assets/bosquemaldito.jpg"),
+      price: 279,
+    },
+    {
+      id: 4,
+      name: "The Prodigy",
+      location: "Cinema La Plata",
+      img: require("./assets/prodigy.jpg"),
+      price: 289,
+    },
+    {
+      id: 5,
+      name: "The Conjuring 3",
+      location: "Cinema La Plata",
+      img: require("./assets/conjuring.jpg"),
+      price: 279,
+    },
+    {
+      id: 6,
+      name: "Un Lugar en Silencio 3",
+      location: "Cinema La Plata2",
+      img: require("./assets/lugarsilencio.jpg"),
+      price: 289,
     }
   ]
 
@@ -69,10 +96,8 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <StatusBar style="auto" />
 
-      {/* No me estaria funcionando */}
-      {/* <Drawer/> */}
+      <StatusBar style="auto" />
 
       <AddItem
         textInput={textInput}
@@ -80,13 +105,13 @@ export default function App() {
         handleChangeText={handleChangeText}
       />
 
-      {/* No me estaria funcionando */}
-      {/* <MyCarousel pelicula={pelis} /> */}
+      <Cartelera pelicula={pelis} />
 
       <List
         itemList={itemList}
         handleModalOpen={handleModalOpen}
       />
+
 
       <ModalItem
         modalVisible={modalVisible}
@@ -102,5 +127,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     paddingTop: 50,
-  }
+    backgroundColor: 'red',
+  },
 });
