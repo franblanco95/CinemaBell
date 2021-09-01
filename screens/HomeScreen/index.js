@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, ScrollView } from 'react-native';
+import { StyleSheet, View, ScrollView, Button } from 'react-native';
 import { AddItem } from '../../components/AddItem';
 import { List } from '../../components/Lista';
 import { ModalItem } from '../../components/Modal';
 import { Cartelera } from '../../components/Cartelera';
+import { NavigationContainer } from '@react-navigation/native';
+
 
 export const HomeScreen = () => {
 
@@ -88,7 +90,7 @@ export const HomeScreen = () => {
   }
 
   return (
-    <ScrollView horizontal>
+    <ScrollView>
       <View style={styles.container}>
 
         <StatusBar style="auto" />
@@ -106,14 +108,12 @@ export const HomeScreen = () => {
           handleModalOpen={handleModalOpen}
         />
 
-
         <ModalItem
           modalVisible={modalVisible}
           itemSelected={itemSelected}
           removeItem={removeItem}
           closeModal={closeModal}
         />
-
 
       </View>
     </ScrollView>
@@ -124,5 +124,6 @@ const styles = StyleSheet.create({
   container: {
     paddingTop: 50,
     backgroundColor: 'black',
+    height: 800,
   },
 });

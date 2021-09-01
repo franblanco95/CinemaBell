@@ -6,19 +6,19 @@ export const Cartelera = ({ pelicula }) => {
     return (
         <View style={{ backgroundColor: 'black', padding: 10 }}>
             <Text style={{ fontSize: 24, color: 'white' }}>Cartelera</Text>
-            <ScrollView>
+            <ScrollView horizontal>
                 <View style={styles.peliculacontainer}>
 
                     {pelicula?.map(pelicula => {
                         return (
                             <View style={styles.pelicula} key={pelicula.id}>
-                                <Text style={styles.titulo}>{pelicula.name}</Text>
                                 <Image
                                     style={styles.imagen}
-                                    resizeMode='contain'
+                                    resizeMode='cover'
                                     source={pelicula.img}
                                     PlaceholderContent={< ActivityIndicator color="#fff" />}
                                 />
+                                <Text style={styles.titulo}>{pelicula.name}</Text>
                             </View>
                         )
                     })}
@@ -32,29 +32,26 @@ export const Cartelera = ({ pelicula }) => {
 const styles = StyleSheet.create({
     peliculacontainer: {
         display: 'flex',
-        flexWrap: 'wrap',
         flexDirection: 'row',
         justifyContent: 'center',
         paddingVertical: 20,
     },
     pelicula: {
-        backgroundColor: 'gray',
-        margin: 5,
+        marginRight: 5,
         display: 'flex',
+        justifyContent: 'space-between',
         alignItems: 'center',
-        width: 180,
-
-
+        width: 150,
     },
     titulo: {
         fontSize: 20,
         color: 'white',
         textAlign: 'center',
-
     },
     imagen: {
-        width: '80%',
-        height: 150,
+        width: 125,
+        height: 200,
+        marginTop: 5,
     }
 
 })
