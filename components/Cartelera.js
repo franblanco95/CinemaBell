@@ -1,5 +1,5 @@
 import React from 'react'
-import { ScrollView, Text, Image, ActivityIndicator, StyleSheet, View } from 'react-native'
+import { ScrollView, Text, Image, ActivityIndicator, StyleSheet, View, TouchableOpacity } from 'react-native'
 
 export const Cartelera = ({ pelicula }) => {
 
@@ -11,15 +11,17 @@ export const Cartelera = ({ pelicula }) => {
 
                     {pelicula?.map(pelicula => {
                         return (
-                            <View style={styles.pelicula} key={pelicula.id}>
-                                <Image
-                                    style={styles.imagen}
-                                    resizeMode='cover'
-                                    source={pelicula.img}
-                                    PlaceholderContent={< ActivityIndicator color="#fff" />}
-                                />
-                                <Text style={styles.titulo}>{pelicula.name}</Text>
-                            </View>
+                            <TouchableOpacity onPress={() => onSelected(pelicula)}>
+                                <View style={styles.pelicula} key={pelicula.id}>
+                                    <Image
+                                        style={styles.imagen}
+                                        resizeMode='cover'
+                                        source={pelicula.img}
+                                        PlaceholderContent={< ActivityIndicator color="#fff" />}
+                                    />
+                                    <Text style={styles.titulo}>{pelicula.name}</Text>
+                                </View>
+                            </TouchableOpacity>
                         )
                     })}
                 </View>
@@ -39,19 +41,18 @@ const styles = StyleSheet.create({
     pelicula: {
         marginRight: 5,
         display: 'flex',
-        justifyContent: 'space-between',
         alignItems: 'center',
         width: 150,
     },
     titulo: {
-        fontSize: 20,
+        fontSize: 18,
         color: 'white',
         textAlign: 'center',
     },
     imagen: {
         width: 125,
         height: 200,
-        marginTop: 5,
+        marginVertical: 7,
     }
 
 })

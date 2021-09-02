@@ -1,12 +1,10 @@
 import React from 'react';
-import HomeNavigator from './navigation/HomeNavigator';
-
+import MainNavigator from './navigation/HomeNavigator';
 
 export default function App() {
 
   return (
-
-    <HomeNavigator />
+    <MainNavigator />
   );
 }
 
