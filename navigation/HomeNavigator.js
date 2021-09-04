@@ -3,50 +3,60 @@ import { StyleSheet, Platform } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { HomeScreen } from '../screens/HomeScreen/HomeScreen';
+import { CarteleraScreen } from '../screens/CarteleraScreen/CarteleraScreen';
 import { FoodScreen } from '../screens/FoodScreen/FoodScreen';
-import { FilmScreen } from '../screens/FilmScreen/FilmScreen';
+import { CinesScreen } from '../screens/CinesScreen/CinesScreen';
+import { PeliculaScreen } from '../screens/PeliculaScreen/PeliculaScreen';
 import FeatherIcon from 'react-native-vector-icons/Feather';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 
-const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
-const HomeNavigator = () => (
+const CarteleraStackNavigator = () => (
 
     <Stack.Navigator
         initialRouteName="Home"
-        screenOption={{
+        screenOptions={{
             headerStyle: {
-                backgroundColor: Platform.OS === 'android' ? 'red' : '',
+                backgroundColor: Platform.OS === 'android' ? 'white' : '',
             },
-            headerTintColor: Platform.OS === 'android' ? 'white' : 'red',
+            headerTintColor: Platform.OS === 'android' ? 'lightblue' : 'red',
             headerTitleStyle: {
                 fontWeight: 'bold',
-            }
+            },
+            headerTitleAlign: 'center',
         }}
+
     >
 
-        <Stack.Screen
-            name="Cinema La Plata"
-            component={HomeScreen}
-            options={{
-                title: "Cine",
-                headerStyle: {
-                    backgroundColor: 'red'
-                }
-            }}
-        />
+        <Stack.Screen name="Cartelera" component={CarteleraScreen} />
 
-        <Stack.Screen
-            name="Film"
-            component={FilmScreen}
-            option={({ route }) => ({
-                title: route.params.name,
+        <Stack.Screen name="PeliculaScreen" component={PeliculaScreen} />
 
-            })}
-        />
+    </Stack.Navigator>
+
+);
+
+const ComidaStackNavigator = () => (
+
+    <Stack.Navigator
+        initialRouteName="Home"
+        screenOptions={{
+            headerStyle: {
+                backgroundColor: Platform.OS === 'android' ? 'white' : '',
+            },
+            headerTintColor: Platform.OS === 'android' ? 'lightblue' : 'red',
+            headerTitleStyle: {
+                fontWeight: 'bold',
+            },
+            headerTitleAlign: 'center',
+        }}
+
+    >
+
+        <Stack.Screen name="Comida" component={FoodScreen} />
 
     </Stack.Navigator>
 
@@ -61,61 +71,44 @@ export default function MainNavigator() {
 
             <Tab.Navigator
                 screenOptions={{ headerShown: false }}
-                // tabBarOptions={{
-                //     activeTintColor: 'blue',
-                // }}
+                tabBarOptions={{
+                    // activeTintColor: 'red',
+                    inactiveTintColor: 'gray',
+                }}
             >
 
-                <Tab.Screen
-                    name="Cartelera"
-                    component={HomeScreen}
+                <Tab.Screen name="Cartelera"
+                    component={CarteleraStackNavigator}
                     options={{
-
                         tabBarIcon: ({ focused }) => (
-                            <FeatherIcon name="film" size={30} color="#000" />
-                        )
-                    }} />
+                            <FeatherIcon name="film" size={30} color="#000" />)
+                    }}
+                />
 
-                <Tab.Screen
-                    name="Comida"
-                    component={FoodScreen}
+                <Tab.Screen name="Comida"
+                    component={ComidaStackNavigator}
                     options={{
-
                         tabBarIcon: ({ focused }) => (
-                            <MaterialCommunityIcons name="popcorn" size={30} color="#000" />
-                        )
-                    }} />
+                            <MaterialCommunityIcons name="popcorn" size={30} color="#000" />)
+                    }}
+                />
 
-                <Tab.Screen
-                    name="Cines"
-                    component={FilmScreen}
+                <Tab.Screen name="Cines"
+                    component={CinesScreen}
                     options={{
+                        tabBarIcon: ({ focused }) => (<MaterialCommunityIcons name="chair-rolling" size={30} color="#000" />)
+                    }}
+                />
 
-                        tabBarIcon: ({ focused }) => (
-
-                            <MaterialCommunityIcons name="chair-rolling" size={30} color="#000" />
-                        )
-                    }} />
-
-                <Tab.Screen
-                    name="Perfil"
-                    component={FilmScreen}
+                <Tab.Screen name="Perfil"
+                    component={CinesScreen}
                     options={{
-
-                        tabBarIcon: ({ focused }) => (
-                            <FeatherIcon name="user" size={30} color="#000" />
-                        )
-                    }} />
+                        tabBarIcon: ({ focused }) => (<FeatherIcon name="user" size={30} color="#000" />)
+                    }}
+                />
 
             </Tab.Navigator>
         </NavigationContainer>
     );
 }
-
-const styles = StyleSheet.create({
-
-})
-
-
-
 

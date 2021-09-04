@@ -1,17 +1,21 @@
 import React from 'react'
 import { ScrollView, Text, Image, ActivityIndicator, StyleSheet, View, TouchableOpacity } from 'react-native'
 
-export const Cartelera = ({ pelicula }) => {
+export const Cartelera = ({ pelicula, navigation }) => {
+
+    const handleSelectedFilm = ({ pelicula }) => {
+        navigation.navigate('PeliculaScreen')
+        console.log(navigation)
+    }
 
     return (
         <View style={{ backgroundColor: 'black', padding: 10 }}>
-            <Text style={{ fontSize: 24, color: 'white' }}>Cartelera</Text>
             <ScrollView horizontal>
                 <View style={styles.peliculacontainer}>
 
                     {pelicula?.map(pelicula => {
                         return (
-                            <TouchableOpacity onPress={() => onSelected(pelicula)}>
+                            <TouchableOpacity onPress={() => { navigation.navigate('PeliculaScreen') }}>
                                 <View style={styles.pelicula} key={pelicula.id}>
                                     <Image
                                         style={styles.imagen}

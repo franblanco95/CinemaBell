@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, ScrollView, StyleSheet } from 'react-native'
 
-export const FilmScreen = () => {
+export const CinesScreen = () => {
     return (
         <ScrollView>
             <View style={styles.container}>
