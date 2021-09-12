@@ -1,12 +1,8 @@
 import React from 'react'
 import { ScrollView, Text, Image, ActivityIndicator, StyleSheet, View, TouchableOpacity } from 'react-native'
 
-export const Cartelera = ({ pelicula, navigation }) => {
 
-    const handleSelectedFilm = ({ pelicula }) => {
-        navigation.navigate('PeliculaScreen')
-        console.log(navigation)
-    }
+export const Cartelera = ({ pelicula, navigation }) => {
 
     return (
         <View style={{ backgroundColor: 'black', padding: 10 }}>
@@ -15,8 +11,8 @@ export const Cartelera = ({ pelicula, navigation }) => {
 
                     {pelicula?.map(pelicula => {
                         return (
-                            <TouchableOpacity onPress={() => { navigation.navigate('PeliculaScreen') }}>
-                                <View style={styles.pelicula} key={pelicula.id}>
+                            <TouchableOpacity key={pelicula.id} onPress={() => navigation.navigate('PeliculaScreen', { id: pelicula.id })}>
+                                <View style={styles.pelicula}>
                                     <Image
                                         style={styles.imagen}
                                         resizeMode='cover'
@@ -29,8 +25,8 @@ export const Cartelera = ({ pelicula, navigation }) => {
                         )
                     })}
                 </View>
-            </ScrollView>
-        </View>
+            </ScrollView >
+        </View >
     )
 
 }

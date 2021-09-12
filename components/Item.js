@@ -1,17 +1,17 @@
 import React from 'react'
 import { View, Text, Image, StyleSheet } from 'react-native'
 
-export const Item = ({ pelicula }) => {
-    return (
-        <View>
-            <Text>{pelicula.name}</Text>
+export const Item = ({ comida }) => {
 
+    return (
+
+        <View>
+            <Text style={{ color: 'red' }}>{comida.name}</Text>
             <Image
-                source={pelicula.img}
+                source={comida.img}
                 resizeMode='cover'
                 style={styles.imagen}
             />
-
         </View>
     )
 }

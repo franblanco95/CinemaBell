@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Platform } from 'react-native';
+import { Platform } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
@@ -9,6 +9,7 @@ import { CinesScreen } from '../screens/CinesScreen/CinesScreen';
 import { PeliculaScreen } from '../screens/PeliculaScreen/PeliculaScreen';
 import FeatherIcon from 'react-native-vector-icons/Feather';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { CartScreen } from '../screens/CartScreen/CartScreen';
 
 
 const Tab = createBottomTabNavigator();
@@ -20,9 +21,9 @@ const CarteleraStackNavigator = () => (
         initialRouteName="Home"
         screenOptions={{
             headerStyle: {
-                backgroundColor: Platform.OS === 'android' ? 'white' : '',
+                backgroundColor: Platform.OS === 'android' ? 'blue' : '',
             },
-            headerTintColor: Platform.OS === 'android' ? 'lightblue' : 'red',
+            headerTintColor: Platform.OS === 'android' ? 'white' : 'red',
             headerTitleStyle: {
                 fontWeight: 'bold',
             },
@@ -57,6 +58,7 @@ const ComidaStackNavigator = () => (
     >
 
         <Stack.Screen name="Comida" component={FoodScreen} />
+        <Stack.Screen name="Cart" component={CartScreen} />
 
     </Stack.Navigator>
 
@@ -77,7 +79,7 @@ export default function MainNavigator() {
                 }}
             >
 
-                <Tab.Screen name="Cartelera"
+                <Tab.Screen name="Carteleras"
                     component={CarteleraStackNavigator}
                     options={{
                         tabBarIcon: ({ focused }) => (
@@ -85,7 +87,7 @@ export default function MainNavigator() {
                     }}
                 />
 
-                <Tab.Screen name="Comida"
+                <Tab.Screen name="Comidas"
                     component={ComidaStackNavigator}
                     options={{
                         tabBarIcon: ({ focused }) => (

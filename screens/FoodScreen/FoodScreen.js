@@ -1,69 +1,51 @@
-import React, { useState } from 'react';
-import { StyleSheet, View, ScrollView } from 'react-native';
-import { AddItem } from '../../components/AddItem';
-import { List } from '../../components/Lista';
-import { ModalItem } from '../../components/Modal';
+import React from 'react';
+import { StyleSheet, View, ScrollView, Image, Button, FlatList, Text } from 'react-native';
+import { Item } from '../../components/Item';
+import { comidas } from '../../utils/comidas';
+import { FAB } from 'react-native-elements'
+import { Ionicons } from '@expo/vector-icons'
+import { addItem } from '../../store/actions/cart.actions';
+import { useDispatch } from 'react-redux'
 
+export const FoodScreen = ({ navigation }) => {
 
-export const FoodScreen = () => {
+    const dispatch = useDispatch();
 
-    const [textInput, setTextInput] = useState('');
-    const [itemList, setItemList] = useState([]);
-
-    const [itemSelected, setItemSelected] = useState({});
-    const [modalVisible, setModalVisible] = useState(false);
-
-    const handleChangeText = (t) => setTextInput(t)
-
-    const handleAddPress = () => {
-        setItemList(
-            [...itemList, {
-                id: Math.random().toString(),
-                value: textInput,
-            },]
-        );
-        setTextInput('');
+    const handlerAddItemCart = () => {
+        dispatch(addItem(comida));
     }
 
-    const closeModal = () => {
-        setModalVisible(false);
-    }
+    const renderItem = ({ item }) => <Item comida={item} />
 
-    const removeItem = () => {
-        setItemList(itemList.filter(item => item.id !== itemSelected.id));
-        setItemSelected({});
-        setModalVisible(false);
-    }
-
-    const handleModalOpen = (id) => {
-        setItemSelected(itemList.find(item => item.id === id));
-        setModalVisible(true);
-    }
     return (
         <ScrollView>
 
             <View style={styles.container}>
 
-                <AddItem
-                    textInput={textInput}
-                    handleAddPress={handleAddPress}
-                    handleChangeText={handleChangeText}
+                <View>
+                    <Image
+                        // style={styles.imagen}
+                        resizeMode='cover'
+                        source={comidas[0].img}
+                    />
+                    <Button title="Agregar al Carrito" onPress={handlerAddItemCart} />
+                </View>
+
+                <FlatList
+                    data={comidas}
+                    renderItem={renderItem}
+                    keyExtractor={item => item.id}
                 />
 
-                <List
-                    itemList={itemList}
-                    handleModalOpen={handleModalOpen}
-                />
-
-                <ModalItem
-                    modalVisible={modalVisible}
-                    itemSelected={itemSelected}
-                    removeItem={removeItem}
-                    closeModal={closeModal}
+                <FAB
+                    icon={<Ionicons name="cart" size={24} color="white" />}
+                    placement="right"
+                    color="green"
+                    onPress={() => navigation.navigate('Cart')}
                 />
 
             </View>
-        </ScrollView>
+        </ScrollView >
     );
 }
 
@@ -71,6 +53,6 @@ const styles = StyleSheet.create({
     container: {
         paddingTop: 50,
         backgroundColor: 'black',
-        height: 800,
+        height: 650,
     },
 });
