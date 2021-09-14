@@ -1,69 +1,14 @@
 import React from 'react';
-import { Platform } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { CarteleraScreen } from '../screens/CarteleraScreen/CarteleraScreen';
-import { FoodScreen } from '../screens/FoodScreen/FoodScreen';
 import { CinesScreen } from '../screens/CinesScreen/CinesScreen';
-import { PeliculaScreen } from '../screens/PeliculaScreen/PeliculaScreen';
 import FeatherIcon from 'react-native-vector-icons/Feather';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import { CartScreen } from '../screens/CartScreen/CartScreen';
-
+import PeliculaStackNavigator from './PeliculaNavigator';
+import LoginStackNavigator from './LoginNavigator';
+import ComidaStackNavigator from './ComidaNavigator';
 
 const Tab = createBottomTabNavigator();
-const Stack = createNativeStackNavigator();
-
-const CarteleraStackNavigator = () => (
-
-    <Stack.Navigator
-        initialRouteName="Home"
-        screenOptions={{
-            headerStyle: {
-                backgroundColor: Platform.OS === 'android' ? 'blue' : '',
-            },
-            headerTintColor: Platform.OS === 'android' ? 'white' : 'red',
-            headerTitleStyle: {
-                fontWeight: 'bold',
-            },
-            headerTitleAlign: 'center',
-        }}
-
-    >
-
-        <Stack.Screen name="Cartelera" component={CarteleraScreen} />
-
-        <Stack.Screen name="PeliculaScreen" component={PeliculaScreen} />
-
-    </Stack.Navigator>
-
-);
-
-const ComidaStackNavigator = () => (
-
-    <Stack.Navigator
-        initialRouteName="Home"
-        screenOptions={{
-            headerStyle: {
-                backgroundColor: Platform.OS === 'android' ? 'white' : '',
-            },
-            headerTintColor: Platform.OS === 'android' ? 'lightblue' : 'red',
-            headerTitleStyle: {
-                fontWeight: 'bold',
-            },
-            headerTitleAlign: 'center',
-        }}
-
-    >
-
-        <Stack.Screen name="Comida" component={FoodScreen} />
-        <Stack.Screen name="Cart" component={CartScreen} />
-
-    </Stack.Navigator>
-
-);
-
 
 export default function MainNavigator() {
 
@@ -79,15 +24,15 @@ export default function MainNavigator() {
                 }}
             >
 
-                <Tab.Screen name="Carteleras"
-                    component={CarteleraStackNavigator}
+                <Tab.Screen name="Cartelera"
+                    component={PeliculaStackNavigator}
                     options={{
                         tabBarIcon: ({ focused }) => (
                             <FeatherIcon name="film" size={30} color="#000" />)
                     }}
                 />
 
-                <Tab.Screen name="Comidas"
+                <Tab.Screen name="Comida"
                     component={ComidaStackNavigator}
                     options={{
                         tabBarIcon: ({ focused }) => (
@@ -103,7 +48,7 @@ export default function MainNavigator() {
                 />
 
                 <Tab.Screen name="Perfil"
-                    component={CinesScreen}
+                    component={LoginStackNavigator}
                     options={{
                         tabBarIcon: ({ focused }) => (<FeatherIcon name="user" size={30} color="#000" />)
                     }}
