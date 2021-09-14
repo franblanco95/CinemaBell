@@ -11,16 +11,16 @@ const inputReducer = (state, action) => {
                 ...state,
                 value: action.value,
                 isValid: action.isValid,
-            }
+            };
         case INPUT_BLUR:
             return {
                 ...state,
                 touched: true,
-            }
+            };
         default:
             return state;
     }
-}
+};
 
 export const Input = (props) => {
 
@@ -28,13 +28,12 @@ export const Input = (props) => {
         value: '',
         isValid: false,
         touched: false,
-    })
+    });
 
     const { onInputChange, id } = props;
     useEffect(() => {
-        props.onInputChange(inputState.value, inputState.isValid);
+        onInputChange(id, inputState.value, inputState.isValid);
     }, [onInputChange, id, inputState])
-
 
     const handleChangeText = text => {
         const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -51,10 +50,9 @@ export const Input = (props) => {
         });
     }
 
-    const handleBlur = () => inputDispatch({ type: INPUT_BLUR })
+    const handleBlur = () => inputDispatch({ type: INPUT_BLUR });
 
     return (
-
         <View style={styles.formControl}>
             <Text style={styles.label}>{props.label}</Text>
             <TextInput
@@ -64,16 +62,14 @@ export const Input = (props) => {
                 onChangeText={handleChangeText}
                 onBlur={handleBlur}
             />
-            {!inputState.value && inputState.touched && (
-                <View style={styles.errorContainer}>
+            {!inputState.isValid && inputState.touched && (
+                <View>
                     <Text style={styles.errorText}>{props.errorText}</Text>
                 </View>
             )}
-
         </View>
-
-    )
-}
+    );
+};
 
 const styles = StyleSheet.create({
     formControl: {
@@ -85,7 +81,12 @@ const styles = StyleSheet.create({
     input: {
         paddingHorizontal: 2,
         paddingVertical: 5,
-        borderBottomColor: 'black',
+        borderBottomColor: '#ccc',
+        borderBottomWidth: 1,
+    },
+    errorText: {
+        marginVertical: 5,
+        color: '#cc7755'
     }
 
 })
