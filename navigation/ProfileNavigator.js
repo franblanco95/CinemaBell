@@ -1,15 +1,15 @@
 import React from 'react';
 import { Platform } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { FoodScreen } from '../screens/FoodScreen/FoodScreen';
-import { CartScreen } from '../screens/CartScreen/CartScreen';
+import { ProfileScreen } from '../screens/ProfileScreen/ProfileScreen';
+
 
 const Stack = createNativeStackNavigator();
 
-const ComidaStackNavigator = () => (
+const ProfileStackNavigator = () => (
 
     <Stack.Navigator
-        initialRouteName="Home"
+        initialRouteName="Login"
         screenOptions={{
             headerStyle: {
                 backgroundColor: Platform.OS === 'android' ? 'rgb(20, 10, 81)' : '',
@@ -23,11 +23,11 @@ const ComidaStackNavigator = () => (
 
     >
 
-        <Stack.Screen name="Comida" component={FoodScreen} />
-        <Stack.Screen name="Cart" component={CartScreen} />
+        <Stack.Screen name="Perfil" component={ProfileScreen} />
+
 
     </Stack.Navigator>
 
 );
 
-export default ComidaStackNavigator;
+export default ProfileStackNavigator;

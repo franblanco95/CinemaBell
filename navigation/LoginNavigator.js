@@ -24,7 +24,7 @@ const LoginStackNavigator = () => (
 
     >
 
-        <Stack.Screen name="Inicio" component={LoginScreen} />
+        <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Registro" component={RegisterScreen} />
 
     </Stack.Navigator>

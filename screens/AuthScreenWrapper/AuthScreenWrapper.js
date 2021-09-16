@@ -31,9 +31,11 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: 'black',
     },
     title: {
         fontSize: 24,
+        color: 'white',
         marginBottom: 18,
         textAlign: 'center',
     },

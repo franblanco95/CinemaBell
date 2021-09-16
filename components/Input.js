@@ -73,16 +73,18 @@ export const Input = (props) => {
 
 const styles = StyleSheet.create({
     formControl: {
-        width: '100%'
+        width: 200,
     },
     label: {
         marginVertical: 8,
+        color: 'white',
     },
     input: {
         paddingHorizontal: 2,
         paddingVertical: 5,
         borderBottomColor: '#ccc',
         borderBottomWidth: 1,
+        color: 'white',
     },
     errorText: {
         marginVertical: 5,

@@ -1,18 +1,18 @@
 import React from 'react';
 import { Platform } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { CarteleraScreen } from '../screens/CarteleraScreen/CarteleraScreen';
-import { PeliculaScreen } from '../screens/PeliculaScreen/PeliculaScreen';
+import { CinesScreen } from '../screens/CinesScreen/CinesScreen';
+
 
 const Stack = createNativeStackNavigator();
 
-const PeliculaStackNavigator = () => (
+const CinesStackNavigator = () => (
 
     <Stack.Navigator
-        initialRouteName="Home"
+        initialRouteName="Login"
         screenOptions={{
             headerStyle: {
-                backgroundColor: Platform.OS === 'android' ? 'blue' : '',
+                backgroundColor: Platform.OS === 'android' ? 'rgb(20, 10, 81)' : '',
             },
             headerTintColor: Platform.OS === 'android' ? 'white' : 'red',
             headerTitleStyle: {
@@ -23,12 +23,11 @@ const PeliculaStackNavigator = () => (
 
     >
 
-        <Stack.Screen name="Cartelera" component={CarteleraScreen} />
+        <Stack.Screen name="Cines" component={CinesScreen} />
 
-        <Stack.Screen name="PeliculaScreen" component={PeliculaScreen} />
 
     </Stack.Navigator>
 
 );
 
-export default PeliculaStackNavigator;
+export default CinesStackNavigator;

@@ -7,8 +7,8 @@ export const LoginScreen = () => {
     return (
 
         <AuthScreenWrapper
-            title="INGRESAR"
-            message="Aun no tienes cuenta?"
+            title="Ingresar"
+            message="¿Aún no tienes cuenta?"
             buttonText="Ir al registro"
             buttonPath="Registro"
         >

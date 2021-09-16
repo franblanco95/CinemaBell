@@ -1,15 +1,14 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 
-export const CinesScreen = () => {
+export const ProfileScreen = () => {
     return (
-
         <View style={styles.container}>
-            <Text style={styles.text}>Soy Film Screen</Text>
+            <Text style={styles.text}>Soy Profile Screen</Text>
         </View>
-
     )
 }
+
 
 const styles = StyleSheet.create({
 

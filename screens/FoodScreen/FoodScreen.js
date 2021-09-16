@@ -18,24 +18,19 @@ export const FoodScreen = ({ navigation }) => {
     const renderItem = ({ item }) => <Item comida={item} />
 
     return (
-        <ScrollView>
+        <ScrollView style={styles.container}>
 
-            <View style={styles.container}>
-
-                <View>
-                    <Image
-                        // style={styles.imagen}
-                        resizeMode='cover'
-                        source={comidas[0].img}
-                    />
-                    <Button title="Agregar al Carrito" onPress={handlerAddItemCart} />
-                </View>
+            <View>
 
                 <FlatList
                     data={comidas}
                     renderItem={renderItem}
                     keyExtractor={item => item.id}
+                    numColumns={2}
+                    contentContainerStyle={styles.flatlist}
                 />
+
+                <Button title="Agregar al Carrito" onPress={handlerAddItemCart} />
 
                 <FAB
                     icon={<Ionicons name="cart" size={24} color="white" />}
@@ -51,8 +46,11 @@ export const FoodScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     container: {
-        paddingTop: 50,
         backgroundColor: 'black',
-        height: 650,
+        flex: 1,
+    },
+    flatlist: {
+        marginVertical: 20,
+        alignItems: 'center',
     },
 });

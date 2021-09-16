@@ -1,12 +1,12 @@
 import React from 'react';
 import { Platform } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { FoodScreen } from '../screens/FoodScreen/FoodScreen';
-import { CartScreen } from '../screens/CartScreen/CartScreen';
+import { CarteleraScreen } from '../screens/CarteleraScreen/CarteleraScreen';
+import { PeliculaScreen } from '../screens/PeliculaScreen/PeliculaScreen';
 
 const Stack = createNativeStackNavigator();
 
-const ComidaStackNavigator = () => (
+const CarteleraStackNavigator = () => (
 
     <Stack.Navigator
         initialRouteName="Home"
@@ -23,11 +23,12 @@ const ComidaStackNavigator = () => (
 
     >
 
-        <Stack.Screen name="Comida" component={FoodScreen} />
-        <Stack.Screen name="Cart" component={CartScreen} />
+        <Stack.Screen name="Cartelera" component={CarteleraScreen} />
+
+        <Stack.Screen name="Pelicula" component={PeliculaScreen} />
 
     </Stack.Navigator>
 
 );
 
-export default ComidaStackNavigator;
+export default CarteleraStackNavigator;

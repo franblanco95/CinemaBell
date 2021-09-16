@@ -1,24 +1,37 @@
 import React from 'react'
-import { View, Text, Image, StyleSheet } from 'react-native'
+import { Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
 
 export const Item = ({ comida }) => {
 
     return (
 
-        <View>
-            <Text style={{ color: 'red' }}>{comida.name}</Text>
+        <TouchableOpacity style={styles.container}>
             <Image
                 source={comida.img}
                 resizeMode='cover'
                 style={styles.imagen}
             />
-        </View>
+            <Text style={styles.text}>{comida.name}</Text>
+        </TouchableOpacity >
     )
 }
 
 const styles = StyleSheet.create({
-    imagen: {
+    container: {
+        alignItems: 'center',
+        backgroundColor: 'rgba(100, 100, 100, 0.2)',
+        borderRadius: 4,
         width: 150,
-        height: 250,
+        paddingBottom: 10,
+        margin: 20,
+    },
+    imagen: {
+        width: 100,
+        height: 175,
+    },
+    text: {
+        color: 'white',
+        fontSize: 16,
+        fontWeight: 'bold',
     }
 });

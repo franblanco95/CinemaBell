@@ -74,7 +74,7 @@ export const RegisterScreen = () => {
     return (
         <AuthScreenWrapper
             title="Registro"
-            message="Ya tienes una cuenta?"
+            message="¿Ya tienes una cuenta?"
             buttonText="Ingresar"
             buttonPath="Login"
         >
@@ -115,5 +115,5 @@ const styles = StyleSheet.create({
     button: {
         backgroundColor: 'green',
         marginVertical: 20,
-    }
+    },
 });
