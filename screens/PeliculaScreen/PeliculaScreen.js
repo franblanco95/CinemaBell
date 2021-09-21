@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux'
-import { StyleSheet, View, ScrollView, Text } from 'react-native';
+import { StyleSheet, View, ScrollView, Text, Image, ActivityIndicator } from 'react-native';
 
 export const PeliculaScreen = ({ route }) => {
 
@@ -10,10 +10,15 @@ export const PeliculaScreen = ({ route }) => {
         <ScrollView>
 
             <View style={styles.container}>
-                <Text style={styles.text}>Hola Soy PeliculaScreen</Text>
+                <Image
+                    style={styles.imagen}
+                    resizeMode='cover'
+                    source={pelicula.img}
+                    PlaceholderContent={< ActivityIndicator color="#fff" />}
+                />
+
                 <Text style={styles.text}>Id: {route.params.id}</Text>
                 <Text style={styles.text}>Nombre: {pelicula.name}</Text>
-                <Text style={styles.text}>Cine: {pelicula.location}</Text>
                 <Text style={styles.text}>Precio: $ {pelicula.price}</Text>
             </View>
         </ScrollView>
@@ -25,6 +30,11 @@ const styles = StyleSheet.create({
         paddingTop: 50,
         backgroundColor: 'black',
         height: 800,
+    },
+    imagen: {
+        width: 155,
+        height: 275,
+        marginRight: 15,
     },
     text: {
         color: 'white',

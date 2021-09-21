@@ -3,6 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, ScrollView, Dimensions } from 'react-native';
 import { Cartelera } from '../../components/Cartelera';
 import { useSelector } from 'react-redux'
+import { FuturosEstrenos } from '../../components/FuturosEstrenos';
 
 const { Height } = Dimensions.get("window").height;
 
@@ -17,6 +18,7 @@ export const CarteleraScreen = ({ navigation }) => {
         <StatusBar style="auto" />
 
         <Cartelera pelicula={peliculas} navigation={navigation} />
+        <FuturosEstrenos pelicula={peliculas} navigation={navigation}/>
 
       </View>
     </ScrollView>

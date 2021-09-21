@@ -18,11 +18,11 @@ export default function TabNavigator() {
             screenOptions={{
                 headerShown: false,
                 tabBarShowLabel: false,
-                tabBarStyle: { ...styles.shadow, ...styles.tabBar }
+                tabBarStyle: { ...styles.shadow, ...styles.tabBar },
             }}
             tabBarOptions={{
-                activeTintColor: 'black',
-                inactiveTintColor: 'gray',
+                activeTintColor: 'white',
+                inactiveTintColor: 'rgba(0,0,0,0.4)',
             }}
         >
 
@@ -92,13 +92,15 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     text: {
-        fontSize: 13
+        fontSize: 13,
+        color: 'white'
     },
     tabBar: {
         position: 'absolute',
         borderTopStartRadius: 15,
         borderTopEndRadius: 15,
-        height: 80,
+        height: 90,
+        backgroundColor: 'rgb(10, 25, 49)',
     },
 
 })

@@ -23,5 +23,6 @@ export const comidas = [
         name: "Helados",
         img: require("../assets/icrecream.png"),
         price: 120,
+
     }
 ]
