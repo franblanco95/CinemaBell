@@ -33,7 +33,7 @@ export default function TabNavigator() {
                     tabBarIcon: (props) => (
                         <View style={styles.item}>
                             <FeatherIcon name="film" size={30} color={props.color} />
-                            <Text style={styles.text}>Cartelera</Text>
+                            <Text style={[styles.text, {color: props.color}]}>Cartelera</Text>
                         </View>)
                 }}
             />
@@ -45,7 +45,7 @@ export default function TabNavigator() {
                     tabBarIcon: (props) => (
                         <View style={styles.item}>
                             <MaterialCommunityIcons name="popcorn" size={30} color={props.color} />
-                            <Text style={styles.text}>Comida</Text>
+                            <Text style={[styles.text, {color: props.color}]}>Comida</Text>
                         </View>)
                 }}
             />
@@ -57,7 +57,7 @@ export default function TabNavigator() {
                     tabBarIcon: (props) => (
                         <View style={styles.item}>
                             <MaterialCommunityIcons name="chair-rolling" size={30} color={props.color} />
-                            <Text style={styles.text}>Cines</Text>
+                            <Text style={[styles.text, {color: props.color}]}>Cines</Text>
                         </View>)
                 }}
             />
@@ -68,7 +68,7 @@ export default function TabNavigator() {
                     tabBarIcon: (props) => (
                         <View style={styles.item}>
                             <FeatherIcon name="user" size={30} color={props.color} />
-                            <Text style={styles.text}>Perfil</Text>
+                            <Text style={[styles.text, {color: props.color}]}>Perfil</Text>
                         </View>)
                 }}
             />
@@ -93,7 +93,6 @@ const styles = StyleSheet.create({
     },
     text: {
         fontSize: 13,
-        color: 'white'
     },
     tabBar: {
         position: 'absolute',

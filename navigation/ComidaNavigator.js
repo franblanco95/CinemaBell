@@ -3,6 +3,7 @@ import { Platform } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { FoodScreen } from '../screens/FoodScreen/FoodScreen';
 import { CartScreen } from '../screens/CartScreen/CartScreen';
+import { PochocloScreen } from '../screens/PochocloScreen/PochocloScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -24,6 +25,7 @@ const ComidaStackNavigator = () => (
     >
 
         <Stack.Screen name="Comida" component={FoodScreen} />
+        <Stack.Screen name="Pochoclo" component={PochocloScreen} />
         <Stack.Screen name="Cart" component={CartScreen} />
 
     </Stack.Navigator>

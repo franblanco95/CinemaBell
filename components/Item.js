@@ -1,11 +1,11 @@
 import React from 'react'
 import { Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
 
-export const Item = ({ comida }) => {
+export const Item = ({ comida, navigation }) => {
 
     return (
 
-        <TouchableOpacity style={styles.container}>
+        <TouchableOpacity style={styles.container} onPress={() => navigation.navigate('Pochoclo', { id: comida.id })}>
             <Image
                 source={comida.img}
                 resizeMode='cover'

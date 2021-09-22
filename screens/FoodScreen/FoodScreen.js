@@ -15,7 +15,7 @@ export const FoodScreen = ({ navigation }) => {
         dispatch(addItem(comida));
     }
 
-    const renderItem = ({ item }) => <Item comida={item} />
+    const renderItem = ({ item }) => <Item comida={item} navigation={navigation}/>
 
     return (
         <ScrollView style={styles.container}>

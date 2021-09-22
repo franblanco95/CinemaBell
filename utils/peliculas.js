@@ -8,7 +8,7 @@ export const peliculas = [
     horario: '1:30 PM, 3:45 PM',
     genero: 'Terror',
     clasificacion: 'Apta para mayores de 13 anos',
-    trailer: ''
+    trailer: 'watch?v=41kMPKpZ_ps'
 
   },
 
@@ -21,7 +21,7 @@ export const peliculas = [
     horario: '1:30 PM, 3:45 PM',
     genero: 'Terror',
     clasificacion: 'Apta para mayores de 13 anos',
-    trailer: ''
+    trailer: 'watch?v=41kMPKpZ_ps'
   },
   {
     id: '3',
@@ -32,7 +32,7 @@ export const peliculas = [
     horario: '1:30 PM, 3:45 PM',
     genero: 'Terror',
     clasificacion: 'Apta para mayores de 13 anos',
-    trailer: ''
+    trailer: 'watch?v=41kMPKpZ_ps'
   },
   {
     id: '4',
@@ -43,7 +43,7 @@ export const peliculas = [
     horario: '1:30 PM, 3:45 PM',
     genero: 'Terror',
     clasificacion: 'Apta para mayores de 13 anos',
-    trailer: ''
+    trailer: 'watch?v=41kMPKpZ_ps'
   },
   {
     id: '5',
@@ -54,7 +54,7 @@ export const peliculas = [
     horario: '1:30 PM, 3:45 PM',
     genero: 'Terror',
     clasificacion: 'Apta para mayores de 13 anos',
-    trailer: ''
+    trailer: 'watch?v=41kMPKpZ_ps'
   },
   {
     id: '6',
