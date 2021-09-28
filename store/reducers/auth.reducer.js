@@ -1,13 +1,19 @@
-import { SIGNUP } from "../actions/auth.actions";
+import { LOGIN, SIGNUP } from "../actions/auth.actions";
 
 const INITIAL_STATE = {
     token: null,
     userId: null,
-}
+};
 
-const AuthReducer = (state = INITIAL_STATE, action = ACTION) => {
+const AuthReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case SIGNUP:
+            return {
+                ...state,
+                token: action.token,
+                userId: action.userId,
+            };
+        case LOGIN:
             return {
                 ...state,
                 token: action.token,

@@ -4,11 +4,11 @@ import { Button } from 'react-native-elements';
 import { useDispatch } from 'react-redux';
 import { AuthScreenWrapper } from '../AuthScreenWrapper/AuthScreenWrapper';
 import { login } from '../../store/actions/auth.actions';
-import Input from '../../components/Input';
+import { Input } from '../../components/Input';
 import { FormReducer, FORM_INPUT_UPDATE } from '../FormReducerScreen/FormReducer';
 
 export const LoginScreen = () => {
-    
+
   const dispatch = useDispatch();
   const [formState, formDispatch] = useReducer(FormReducer, {
     inputValues: {
