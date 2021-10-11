@@ -26,8 +26,8 @@ const styles = StyleSheet.create({
         margin: 20,
     },
     imagen: {
-        width: 100,
-        height: 175,
+        width: 120,
+        height: 130,
     },
     text: {
         color: 'white',

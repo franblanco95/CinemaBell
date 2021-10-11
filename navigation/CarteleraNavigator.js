@@ -23,7 +23,7 @@ const CarteleraStackNavigator = () => (
 
     >
 
-        <Stack.Screen name="Cartelera" component={CarteleraScreen} />
+        <Stack.Screen name="CinemaBell" component={CarteleraScreen} />
 
         <Stack.Screen name="Pelicula" component={PeliculaScreen} />
 

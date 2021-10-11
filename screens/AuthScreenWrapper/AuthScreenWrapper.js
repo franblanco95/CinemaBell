@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'black',
+        backgroundColor: 'rgb(10, 25, 49)',
     },
     title: {
         fontSize: 24,

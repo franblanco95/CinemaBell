@@ -1,5 +1,5 @@
 import React from 'react'
-import { ScrollView, Text, Image, ActivityIndicator, StyleSheet, View, TouchableOpacity, Button } from 'react-native'
+import { ScrollView, Text, Image, ActivityIndicator, StyleSheet, View, TouchableOpacity } from 'react-native'
 import * as Linking from 'expo-linking'
 
 export const FuturosEstrenos = ({ pelicula, navigation }) => {
@@ -25,21 +25,24 @@ export const FuturosEstrenos = ({ pelicula, navigation }) => {
                                     <Text style={styles.info}>{pelicula.horario}</Text>
                                     <View style={{ flexDirection: 'row', marginTop: 15 }}>
                                         <Text style={{ color: 'white', fontWeight: 'bold' }}>Idioma: </Text>
-                                        <Text style={styles.info}>{pelicula.idioma}</Text>
+                                        <Text style={styles.info}>{pelicula.language}</Text>
                                     </View>
                                     <View style={{ flexDirection: 'row' }}>
                                         <Text style={{ color: 'white', fontWeight: 'bold' }}>Genero: </Text>
                                         <Text style={styles.info}>{pelicula.genero}</Text>
                                     </View>
                                     <View style={{ flexDirection: 'row' }}>
-                                        <Text style={{ color: 'white', fontWeight: 'bold' }}>Clasificación: </Text>
-                                        <Text style={styles.info}>{pelicula.clasificacion}</Text>
+                                        <Text style={{ color: 'white', fontWeight: 'bold' }}>Duración: </Text>
+                                        <Text style={styles.info}>{pelicula.duracion}</Text>
                                     </View>
 
-                                    <Button
-                                        title="Ver Trailer"
+                                    <TouchableOpacity
                                         onPress={() => Linking.openURL(`https://www.youtube.com/${pelicula.trailer}`)}
-                                    />
+                                    >
+                                        <Text>Ver Trailer</Text>
+                                    </TouchableOpacity>
+
+
                                 </View>
                             </View>
                         )

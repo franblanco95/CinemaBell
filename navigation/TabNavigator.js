@@ -26,13 +26,13 @@ export default function TabNavigator() {
         >
 
             <Tab.Screen
-                name="Cartelera2"
+                name="Home2"
                 component={CarteleraStackNavigator}
                 options={{
                     tabBarIcon: (props) => (
                         <View style={styles.item}>
                             <FeatherIcon name="film" size={30} color={props.color} />
-                            <Text style={[styles.text, { color: props.color }]}>Cartelera</Text>
+                            <Text style={[styles.text, { color: props.color }]}>Inicio</Text>
                         </View>)
                 }}
             />

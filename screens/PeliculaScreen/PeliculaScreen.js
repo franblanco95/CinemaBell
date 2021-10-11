@@ -34,15 +34,15 @@ export const PeliculaScreen = ({ route }) => {
                 <View style={styles.info}>
 
                     <View style={styles.box}>
-                        <Text style={styles.text}>Género</Text>
+
                         <Text style={styles.text}>{pelicula.genero}</Text>
                     </View>
                     <View style={styles.box}>
-                        <Text style={styles.text}>Idioma</Text>
+
                         <Text style={styles.text}>{pelicula.language}</Text>
                     </View>
                     <View style={styles.box}>
-                        <Text style={styles.text}>Duración</Text>
+
                         <Text style={styles.text}>{pelicula.duracion}</Text>
                     </View>
                 </View>
@@ -55,8 +55,9 @@ export const PeliculaScreen = ({ route }) => {
                     style={styles.touchableStyle}
                     onPress={() => console.log('prueba')}
                 >
-                    <Text style={styles.text}>Comprar Ticket | $ {pelicula.price}</Text>
+                    <Text style={styles.touchableText}>Comprar Ticket | $ {pelicula.price}</Text>
                 </TouchableOpacity>
+
 
             </View>
         </ScrollView >
@@ -66,9 +67,9 @@ export const PeliculaScreen = ({ route }) => {
 const styles = StyleSheet.create({
     container: {
         paddingVertical: 25,
-        paddingHorizontal: 15,
+        paddingHorizontal: 25,
         backgroundColor: 'black',
-        height: 800,
+        height: 860,
     },
     imagen: {
         width: 230,
@@ -78,11 +79,13 @@ const styles = StyleSheet.create({
     title: {
         color: 'white',
         fontSize: 25,
+        fontWeight: 'bold',
         marginVertical: 10,
     },
     subtitle: {
         color: 'white',
-        fontSize: 19,
+        fontSize: 20,
+        fontWeight: 'bold',
         marginVertical: 10,
     },
     info: {
@@ -92,11 +95,10 @@ const styles = StyleSheet.create({
     box: {
         justifyContent: 'center',
         alignItems: 'center',
-        width: 75,
-        height: 50,
-        backgroundColor: "gray",
-        borderRadius: 15,
-
+        width: 90,
+        height: 30,
+        backgroundColor: 'rgb(53, 58, 74)',
+        borderRadius: 13,
     },
     text: {
         color: 'white',
@@ -105,8 +107,15 @@ const styles = StyleSheet.create({
     },
     touchableStyle: {
         alignItems: "center",
-        backgroundColor: "blue",
-        padding: 10,
-        width: 250,
+        backgroundColor: 'rgb(79, 77, 155)',
+        padding: 15,
+        borderRadius: 10,
+        marginHorizontal: 15,
+        marginTop: 15,
+    },
+    touchableText: {
+        fontSize: 17,
+        fontWeight: 'bold',
+        color: 'white',
     },
 });
