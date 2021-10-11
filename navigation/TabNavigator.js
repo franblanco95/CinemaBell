@@ -19,56 +19,55 @@ export default function TabNavigator() {
                 headerShown: false,
                 tabBarShowLabel: false,
                 tabBarStyle: { ...styles.shadow, ...styles.tabBar },
+                tabBarActiveTintColor: "white",
+                tabBarInactiveTintColor: "rgba(0,0,0,0.4)",
             }}
-            tabBarOptions={{
-                activeTintColor: 'white',
-                inactiveTintColor: 'rgba(0,0,0,0.4)',
-            }}
+
         >
 
             <Tab.Screen
-                name="Cartelera"
+                name="Cartelera2"
                 component={CarteleraStackNavigator}
                 options={{
                     tabBarIcon: (props) => (
                         <View style={styles.item}>
                             <FeatherIcon name="film" size={30} color={props.color} />
-                            <Text style={[styles.text, {color: props.color}]}>Cartelera</Text>
+                            <Text style={[styles.text, { color: props.color }]}>Cartelera</Text>
                         </View>)
                 }}
             />
 
             <Tab.Screen
-                name="Comida"
+                name="Comida2"
                 component={ComidaStackNavigator}
                 options={{
                     tabBarIcon: (props) => (
                         <View style={styles.item}>
                             <MaterialCommunityIcons name="popcorn" size={30} color={props.color} />
-                            <Text style={[styles.text, {color: props.color}]}>Comida</Text>
+                            <Text style={[styles.text, { color: props.color }]}>Comida</Text>
                         </View>)
                 }}
             />
 
             <Tab.Screen
-                name="Cines"
+                name="Cines2"
                 component={CinesStackNavigator}
                 options={{
                     tabBarIcon: (props) => (
                         <View style={styles.item}>
                             <MaterialCommunityIcons name="chair-rolling" size={30} color={props.color} />
-                            <Text style={[styles.text, {color: props.color}]}>Cines</Text>
+                            <Text style={[styles.text, { color: props.color }]}>Cines</Text>
                         </View>)
                 }}
             />
 
-            <Tab.Screen name="Perfil"
+            <Tab.Screen name="Perfil2"
                 component={ProfileStackNavigator}
                 options={{
                     tabBarIcon: (props) => (
                         <View style={styles.item}>
                             <FeatherIcon name="user" size={30} color={props.color} />
-                            <Text style={[styles.text, {color: props.color}]}>Perfil</Text>
+                            <Text style={[styles.text, { color: props.color }]}>Perfil</Text>
                         </View>)
                 }}
             />

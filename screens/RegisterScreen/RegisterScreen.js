@@ -83,7 +83,7 @@ export const RegisterScreen = () => {
             <Input
                 id='email'
                 label="Email"
-                keyboardType="email-adress"
+                keyboardType="email-address"
                 autoCapitalize="none"
                 errorText='Por favor ingresa un mail valido'
                 required

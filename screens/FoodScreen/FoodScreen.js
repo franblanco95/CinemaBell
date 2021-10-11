@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, ScrollView, Image, Button, FlatList, Text } from 'react-native';
+import { StyleSheet, View, Button, FlatList } from 'react-native';
 import { Item } from '../../components/Item';
 import { comidas } from '../../utils/comidas';
 import { FAB } from 'react-native-elements'
@@ -15,10 +15,10 @@ export const FoodScreen = ({ navigation }) => {
         dispatch(addItem(comida));
     }
 
-    const renderItem = ({ item }) => <Item comida={item} navigation={navigation}/>
+    const renderItem = ({ item }) => <Item comida={item} navigation={navigation} />
 
     return (
-        <ScrollView style={styles.container}>
+        <View style={styles.container}>
 
             <View>
 
@@ -40,7 +40,7 @@ export const FoodScreen = ({ navigation }) => {
                 />
 
             </View>
-        </ScrollView >
+        </View >
     );
 }
 
