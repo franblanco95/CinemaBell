@@ -48,7 +48,7 @@ export const LoginScreen = () => {
       title="INGRESAR"
       message="¿Aún no tienes cuenta?"
       buttonText="Ir al registro"
-      buttonPath="Register"
+      buttonPath="Registro"
     >
       <Input
         id="email"

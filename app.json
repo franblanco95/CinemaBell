@@ -3,6 +3,10 @@
     "name": "ReactNative",
     "slug": "ReactNative",
     "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android"
+    ],
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -17,13 +21,19 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.franblanco.cine",
+      "buildNumber": "1.0.0"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.franblanco.cine",
+      "versionCode": 1,
+      "permissions": [],
+      "config": {}
     },
     "web": {
       "favicon": "./assets/favicon.png"
