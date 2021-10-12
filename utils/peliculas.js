@@ -23,7 +23,7 @@ export const peliculas = [
     genero: 'Terror',
     duracion: '1h 25min',
     trailer: 'watch?v=41kMPKpZ_ps',
-    star: 3,
+    star: 2,
     synopsis: 'El ex militar ciego que causó estragos en la primera entrega, volverá a verse envuelto en problemas. En aquella ocasión el hombre consiguió acabar de manera violenta con algunos de los jóvenes que tratan de entrar a robar a su hogar. Ahora, parece que un grupo de amigos ha entrado en su casa, pero con intenciones bien diferentes: van a tratar de tomarse venganza por sus malogrados colegas, en el asalto tiempo atrás.',
   },
   {
@@ -36,7 +36,7 @@ export const peliculas = [
     genero: 'Terror',
     duracion: '1h 52min',
     trailer: 'watch?v=41kMPKpZ_ps',
-    star: 3,
+    star: 4,
     synopsis: 'El ex militar ciego que causó estragos en la primera entrega, volverá a verse envuelto en problemas. En aquella ocasión el hombre consiguió acabar de manera violenta con algunos de los jóvenes que tratan de entrar a robar a su hogar. Ahora, parece que un grupo de amigos ha entrado en su casa, pero con intenciones bien diferentes: van a tratar de tomarse venganza por sus malogrados colegas, en el asalto tiempo atrás.',
   },
   {
@@ -49,7 +49,7 @@ export const peliculas = [
     genero: 'Terror',
     duracion: '1h 48min',
     trailer: 'watch?v=41kMPKpZ_ps',
-    star: 3,
+    star: 5,
     synopsis: 'El ex militar ciego que causó estragos en la primera entrega, volverá a verse envuelto en problemas. En aquella ocasión el hombre consiguió acabar de manera violenta con algunos de los jóvenes que tratan de entrar a robar a su hogar. Ahora, parece que un grupo de amigos ha entrado en su casa, pero con intenciones bien diferentes: van a tratar de tomarse venganza por sus malogrados colegas, en el asalto tiempo atrás.',
   },
   {
@@ -62,7 +62,7 @@ export const peliculas = [
     genero: 'Terror',
     duracion: '2h 12min',
     trailer: 'watch?v=41kMPKpZ_ps',
-    star: 3,
+    star: 1,
     synopsis: 'El ex militar ciego que causó estragos en la primera entrega, volverá a verse envuelto en problemas. En aquella ocasión el hombre consiguió acabar de manera violenta con algunos de los jóvenes que tratan de entrar a robar a su hogar. Ahora, parece que un grupo de amigos ha entrado en su casa, pero con intenciones bien diferentes: van a tratar de tomarse venganza por sus malogrados colegas, en el asalto tiempo atrás.',
   },
   {

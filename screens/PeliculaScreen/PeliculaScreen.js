@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux'
 import { StyleSheet, View, ScrollView, Text, Image, ActivityIndicator, TouchableOpacity } from 'react-native';
-import StarRatings from 'react-star-ratings';
+import { AirbnbRating } from 'react-native-ratings';
 
 export const PeliculaScreen = ({ route }) => {
 
@@ -22,15 +22,17 @@ export const PeliculaScreen = ({ route }) => {
                 </View>
 
                 <Text style={styles.title}>{pelicula.name}</Text>
-                {/* <StarRatings
-                        rating={pelicula.star}
-                        numberOfStars={5}
-                        starRatedColor="rgb(218,165,32)"
-                        starDimension="25px"
-                        starSpacing="5px"
-                    /> */}
+                <View style={{ AlignItems: 'flex-end' }}>
 
+                    <AirbnbRating
+                        defaultRating={pelicula.star}
+                        size={20}
+                        showRating={false}
+                        isDisabled={true}
+                        starContainerStyle={{ justifyContent: 'flex-start', alignItems: 'flex-start', margin: 10 }}
+                    />
 
+                </View>
                 <View style={styles.info}>
 
                     <View style={styles.box}>
@@ -78,9 +80,10 @@ const styles = StyleSheet.create({
     },
     title: {
         color: 'white',
+        textAlign: 'center',
         fontSize: 25,
         fontWeight: 'bold',
-        marginVertical: 10,
+        marginTop: 15,
     },
     subtitle: {
         color: 'white',
