@@ -8,63 +8,65 @@ export const PeliculaScreen = ({ route }) => {
     const pelicula = useSelector(state => state.peliculas.list.find((pelicula) => pelicula.id === route.params.id));
 
     return (
-        <ScrollView style={styles.container}>
+        <ScrollView style={{ flex: 1 }}>
 
-            <View style={{ alignItems: 'center' }}>
-                <Image
-                    style={styles.imagen}
-                    resizeMode='cover'
-                    source={pelicula.img}
-                    PlaceholderContent={< ActivityIndicator color="#fff" />}
-                />
-            </View>
+            <View style={styles.container}>
 
-            <Text style={styles.title}>{pelicula.name}</Text>
-            <View style={{ AlignItems: 'flex-end' }}>
-
-                <AirbnbRating
-                    defaultRating={pelicula.star}
-                    size={20}
-                    showRating={false}
-                    isDisabled={true}
-                    starContainerStyle={{ justifyContent: 'flex-start', alignItems: 'flex-start', margin: 10 }}
-                />
-
-            </View>
-            <View style={styles.info}>
-
-                <View style={styles.box}>
-
-                    <Text style={styles.text}>{pelicula.genero}</Text>
+                <View style={{ alignItems: 'center' }}>
+                    <Image
+                        style={styles.imagen}
+                        resizeMode='cover'
+                        source={pelicula.img}
+                        PlaceholderContent={< ActivityIndicator color="#fff" />}
+                    />
                 </View>
-                <View style={styles.box}>
 
-                    <Text style={styles.text}>{pelicula.language}</Text>
-                </View>
-                <View style={styles.box}>
+                <Text style={styles.title}>{pelicula.name}</Text>
+                <View style={{ AlignItems: 'flex-end' }}>
 
-                    <Text style={styles.text}>{pelicula.duracion}</Text>
+                    <AirbnbRating
+                        defaultRating={pelicula.star}
+                        size={20}
+                        showRating={false}
+                        isDisabled={true}
+                        starContainerStyle={{ justifyContent: 'flex-start', alignItems: 'flex-start', margin: 10 }}
+                    />
+
                 </View>
+                <View style={styles.info}>
+
+                    <View style={styles.box}>
+
+                        <Text style={styles.text}>{pelicula.genero}</Text>
+                    </View>
+                    <View style={styles.box}>
+
+                        <Text style={styles.text}>{pelicula.language}</Text>
+                    </View>
+                    <View style={styles.box}>
+
+                        <Text style={styles.text}>{pelicula.duracion}</Text>
+                    </View>
+                </View>
+
+                <Text style={styles.subtitle}>Synopsis</Text>
+                <Text style={styles.text}>{pelicula.synopsis}</Text>
+
+
+                <TouchableOpacity
+                    style={styles.touchableStyle}
+                    onPress={() => console.log('prueba')}
+                >
+                    <Text style={styles.touchableText}>Comprar Ticket | $ {pelicula.price}</Text>
+                </TouchableOpacity>
+
             </View>
-
-            <Text style={styles.subtitle}>Synopsis</Text>
-            <Text style={styles.text}>{pelicula.synopsis}</Text>
-
-
-            <TouchableOpacity
-                style={styles.touchableStyle}
-                onPress={() => console.log('prueba')}
-            >
-                <Text style={styles.touchableText}>Comprar Ticket | $ {pelicula.price}</Text>
-            </TouchableOpacity>
-
         </ScrollView >
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         paddingVertical: 25,
         paddingHorizontal: 25,
         backgroundColor: 'black',

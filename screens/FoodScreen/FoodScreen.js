@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, FlatList, Button } from 'react-native';
+import { StyleSheet, View, FlatList, Button, Text } from 'react-native';
 import { Item } from '../../components/Item';
 import { comidas } from '../../utils/comidas';
 import { FAB } from 'react-native-elements'
@@ -27,6 +27,7 @@ export const FoodScreen = ({ navigation }) => {
                 numColumns={1}
                 contentContainerStyle={styles.flatlist}
             />
+            <Text style={{ color: 'white' }}> Precio Total</Text>
             <Button title="Agregar al Carrito" onPress={handlerAddItemCart} />
 
             {/* <FAB

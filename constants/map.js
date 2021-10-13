@@ -1,3 +1,3 @@
-import { API_KEY } from '@env'
+import { GOOGLE_API_KEY } from '@env'
 
-export const API_KEY = 'process.env.API_KEY';
+export const API_KEY = GOOGLE_API_KEY;
