@@ -98,7 +98,8 @@ const styles = StyleSheet.create({
         borderTopStartRadius: 15,
         borderTopEndRadius: 15,
         height: 90,
-        backgroundColor: 'rgb(10, 25, 49)',
+        backgroundColor: 'rgb(0, 25, 49)',
+        borderTopWidth: 0,
     },
 
 })

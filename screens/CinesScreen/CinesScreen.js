@@ -1,32 +1,34 @@
 import React, { useState } from 'react'
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 import { LocationSelector } from '../../components/LocationSelector'
 import MapView, { Marker } from 'react-native-maps';
 
 export const CinesScreen = () => {
 
-    const [selectedLocation, setSelectedLocation] = useState()
+    // const [selectedLocation, setSelectedLocation] = useState()
 
     const initialRegion = {
         latitude: -34.870932294296956,
         longitude: -58.04583096324361,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421,
+        latitudeDelta: 0.01,
+        longitudeDelta: 0.02,
     };
 
-    const handleSelectLocation = event => {
-        setSelectedLocation({
-            lat: event.nativeEvent.coordinate.latitude,
-            lng: event.nativeEvent.coordinate.longitude,
-        })
-    }
+    // const handleSelectLocation = event => {
+    //     setSelectedLocation({
+    //         lat: event.nativeEvent.coordinate.latitude,
+    //         lng: event.nativeEvent.coordinate.longitude,
+    //     })
+    // }
 
-    if (selectedLocation) {
-        markerCoordinates = {
-            latitude: selectedLocation.lat,
-            longitude: selectedLocation.lng,
-        }
-    }
+    // let markerCoordinates;
+
+    // if (selectedLocation) {
+    //     markerCoordinates = {
+    //         latitude: selectedLocation.lat,
+    //         longitude: selectedLocation.lng,
+    //     }
+    // }
 
     // const [location, setLocation] = useState();
 
@@ -36,19 +38,22 @@ export const CinesScreen = () => {
 
     return (
         // {/* <LocationSelector onLocation={handlePickLocation} /> */}
+        <View style={styles.container}>
+            <MapView
+                initialRegion={initialRegion}
+                style={styles.view}
+            // onPress={handleSelectLocation}
+            >
 
-        <MapView
-            initialRegion={initialRegion}
-            style={styles.container}
-            onPress={handleSelectLocation}
-        >
-            {markerCoordinates && (
                 <Marker
-                    title="Ubicacion Seleccionada"
-                    coordinate={markerCoordinates} />
-            )}
-        </MapView>
+                    title="Cinema Bell"
+                    description="Cine"
+                    coordinate={initialRegion}
 
+                />
+
+            </MapView>
+        </View>
 
 
     )
@@ -57,12 +62,14 @@ export const CinesScreen = () => {
 const styles = StyleSheet.create({
 
     container: {
-        padding: 20,
+        flex: 1,
         backgroundColor: 'black',
-        height: 800,
+        alignItems: 'center',
     },
-    text: {
-        color: 'white',
+    view: {
+        marginTop: 25,
+        width: '85%',
+        height: '65%',
     }
 
 })

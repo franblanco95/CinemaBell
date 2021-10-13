@@ -5,81 +5,97 @@ import * as Linking from 'expo-linking'
 export const FuturosEstrenos = ({ pelicula, navigation }) => {
 
     return (
-        <View style={{ backgroundColor: 'rgb(21, 21, 21)', padding: 10 }}>
-            <ScrollView>
-                <View style={styles.peliculacontainer}>
 
-                    {pelicula?.map(pelicula => {
-                        return (
-                            <View key={pelicula.id} style={styles.pelicula}>
-                                <TouchableOpacity onPress={() => navigation.navigate('Pelicula', { id: pelicula.id })}>
-                                    <Image
-                                        style={styles.imagen}
-                                        resizeMode='cover'
-                                        source={pelicula.img}
-                                        PlaceholderContent={< ActivityIndicator color="#fff" />}
-                                    />
-                                </TouchableOpacity>
-                                <View>
-                                    <Text style={styles.titulo}>{pelicula.name}</Text>
-                                    <Text style={styles.info}>{pelicula.horario}</Text>
-                                    <View style={{ flexDirection: 'row', marginTop: 15 }}>
-                                        <Text style={{ color: 'white', fontWeight: 'bold' }}>Idioma: </Text>
-                                        <Text style={styles.info}>{pelicula.language}</Text>
-                                    </View>
-                                    <View style={{ flexDirection: 'row' }}>
-                                        <Text style={{ color: 'white', fontWeight: 'bold' }}>Genero: </Text>
-                                        <Text style={styles.info}>{pelicula.genero}</Text>
-                                    </View>
-                                    <View style={{ flexDirection: 'row' }}>
-                                        <Text style={{ color: 'white', fontWeight: 'bold' }}>Duración: </Text>
-                                        <Text style={styles.info}>{pelicula.duracion}</Text>
-                                    </View>
-
-                                    <TouchableOpacity
-                                        onPress={() => Linking.openURL(`https://www.youtube.com/${pelicula.trailer}`)}
-                                    >
-                                        <Text>Ver Trailer</Text>
-                                    </TouchableOpacity>
-
-
+        <ScrollView style={styles.container}>
+            {pelicula?.map(pelicula => {
+                return (
+                    <View key={pelicula.id} style={styles.pelicula}>
+                        <TouchableOpacity onPress={() => navigation.navigate('Pelicula', { id: pelicula.id })}>
+                            <Image
+                                style={styles.imagen}
+                                resizeMode='cover'
+                                source={pelicula.img}
+                                PlaceholderContent={< ActivityIndicator color="#fff" />}
+                            />
+                        </TouchableOpacity>
+                        <View style={{ width: '60%', justifyContent: 'space-around' }}>
+                            <View>
+                                <Text style={styles.titulo}>{pelicula.name}</Text>
+                                <Text style={styles.info}>{pelicula.horario}</Text>
+                            </View>
+                            <View>
+                                <View style={{ flexDirection: 'row' }}>
+                                    <Text style={styles.subtitulo}>Idioma: </Text>
+                                    <Text style={styles.info}>{pelicula.language}</Text>
+                                </View>
+                                <View style={{ flexDirection: 'row' }}>
+                                    <Text style={styles.subtitulo}>Genero: </Text>
+                                    <Text style={styles.info}>{pelicula.genero}</Text>
+                                </View>
+                                <View style={{ flexDirection: 'row' }}>
+                                    <Text style={styles.subtitulo}>Duración: </Text>
+                                    <Text style={styles.info}>{pelicula.duracion}</Text>
                                 </View>
                             </View>
-                        )
-                    })}
-                </View>
-            </ScrollView >
-        </View >
-    )
+                            <TouchableOpacity
+                                style={styles.trailerButton}
+                                onPress={() => Linking.openURL(`https://www.youtube.com/${pelicula.trailer}`)}
+                            >
+                                <Image
+                                    source={require("../assets/playicon2.png")}
+                                    style={{ height: 20, width: 20, marginRight: 6 }}
+                                />
+                                <Text style={styles.trailerText}>Ver Trailer</Text>
+                            </TouchableOpacity>
 
+
+                        </View>
+                    </View>
+                )
+            })}
+
+        </ScrollView >
+    )
 }
 
 const styles = StyleSheet.create({
-    peliculacontainer: {
-        margin: 5,
-        marginBottom: 80,
+
+    container: {
+        backgroundColor: 'rgb(21, 21, 21)',
+        padding: 10,
     },
     pelicula: {
-        marginTop: 15,
+        marginBottom: 15,
         display: 'flex',
         flexDirection: 'row',
-
     },
     titulo: {
         fontSize: 18,
         fontWeight: 'bold',
         color: 'rgb(135, 206, 250)',
     },
-    info: {
+    subtitulo: {
         color: 'white',
+        fontWeight: 'bold',
     },
-    info2: {
+    info: {
         color: 'white',
     },
     imagen: {
         width: 115,
         height: 175,
         marginRight: 15,
+    },
+    trailerButton: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        backgroundColor: 'orange',
+        borderRadius: 10,
+        padding: 5,
+        width: 105,
+    },
+    trailerText: {
+        color: 'white',
     }
 
 })
