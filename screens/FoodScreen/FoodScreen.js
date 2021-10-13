@@ -1,13 +1,16 @@
 import React from 'react';
-import { StyleSheet, View, Button, FlatList } from 'react-native';
+import { StyleSheet, View, FlatList, Button } from 'react-native';
 import { Item } from '../../components/Item';
 import { comidas } from '../../utils/comidas';
 import { FAB } from 'react-native-elements'
 import { Ionicons } from '@expo/vector-icons'
-import { addItem } from '../../store/actions/cart.actions';
 import { useDispatch } from 'react-redux'
+import { addItem } from '../../store/actions/cart.actions';
+
 
 export const FoodScreen = ({ navigation }) => {
+
+    const renderItem = ({ item }) => <Item comida={item} navigation={navigation} />
 
     const dispatch = useDispatch();
 
@@ -15,42 +18,33 @@ export const FoodScreen = ({ navigation }) => {
         dispatch(addItem(comida));
     }
 
-    const renderItem = ({ item }) => <Item comida={item} navigation={navigation} />
-
     return (
         <View style={styles.container}>
+            <FlatList
+                data={comidas}
+                renderItem={renderItem}
+                keyExtractor={item => item.id}
+                numColumns={1}
+                contentContainerStyle={styles.flatlist}
+            />
+            <Button title="Agregar al Carrito" onPress={handlerAddItemCart} />
 
-            <View>
+            {/* <FAB
+                icon={<Ionicons name="cart" size={24} color="white" />}
+                placement="right"
+                color="cyan"
+                onPress={() => navigation.navigate('Cart')}
+            /> */}
 
-                <FlatList
-                    data={comidas}
-                    renderItem={renderItem}
-                    keyExtractor={item => item.id}
-                    numColumns={2}
-                    contentContainerStyle={styles.flatlist}
-                />
-
-                <Button title="Agregar al Carrito" onPress={handlerAddItemCart} />
-
-                <FAB
-                    icon={<Ionicons name="cart" size={24} color="white" />}
-                    placement="right"
-                    color="green"
-                    onPress={() => navigation.navigate('Cart')}
-                />
-
-            </View>
         </View >
     );
 }
 
 const styles = StyleSheet.create({
     container: {
+        height: 550,
         backgroundColor: 'black',
-        flex: 1,
     },
     flatlist: {
-        marginVertical: 20,
-        alignItems: 'center',
     },
 });

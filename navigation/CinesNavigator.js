@@ -23,7 +23,7 @@ const CinesStackNavigator = () => (
 
     >
 
-        <Stack.Screen name="Cines" component={CinesScreen} />
+        <Stack.Screen name="Cine" component={CinesScreen} />
 
 
     </Stack.Navigator>

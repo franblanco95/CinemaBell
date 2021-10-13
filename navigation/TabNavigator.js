@@ -50,13 +50,13 @@ export default function TabNavigator() {
             />
 
             <Tab.Screen
-                name="Cines2"
+                name="Cine2"
                 component={CinesStackNavigator}
                 options={{
                     tabBarIcon: (props) => (
                         <View style={styles.item}>
                             <MaterialCommunityIcons name="chair-rolling" size={30} color={props.color} />
-                            <Text style={[styles.text, { color: props.color }]}>Cines</Text>
+                            <Text style={[styles.text, { color: props.color }]}>Cine</Text>
                         </View>)
                 }}
             />
