@@ -6,8 +6,6 @@ import { addItem } from '../../store/actions/cart.actions'
 
 export const PochocloScreen = ({ route }) => {
 
-    console.log(route)
-
     const [counter, setCounter] = useState(0)
 
     const comida = useSelector(state => state.comidas.list.find((comida) => comida.id === route.params.id));

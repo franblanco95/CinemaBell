@@ -23,7 +23,7 @@ export const confirmCart = (payload) => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    date: DATE.now(),
+                    date: Date.now(),
                     items: { ...payload },
                 })
             })

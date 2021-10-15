@@ -15,9 +15,11 @@ export const CartScreen = () => {
     const handlerConfirmCart = () => dispatch(confirmCart(items));
 
     const renderItem = (data) => (
+
         <CartItem item={data.item} onDelete={handlerDeleteItem} />
     )
     return (
+
         <View style={styles.container}>
             <View style={styles.list}>
                 <FlatList
@@ -30,6 +32,7 @@ export const CartScreen = () => {
 
                 <TouchableOpacity style={styles.confirm} onPress={handlerConfirmCart}>
                     <Text style={styles.text}>Confirmar</Text>
+                    <Text style={styles.text}>$ {total}</Text>
                 </TouchableOpacity>
 
             </View>
@@ -39,9 +42,10 @@ export const CartScreen = () => {
 
 const styles = StyleSheet.create({
     container: {
-        height: 550,
+        flex: 1,
         padding: 12,
-        backgroundColor: '#16191e'
+        backgroundColor: '#16191e',
+        marginBottom: 80,
     },
     list: {
         flex: 1,

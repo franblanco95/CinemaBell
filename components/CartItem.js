@@ -11,8 +11,11 @@ export const CartItem = ({ item, onDelete }) => {
                 resizeMode='cover'
             />
 
-            <Text style={styles.header}> {item.name}</Text>
-
+            {console.log(item.quantity)}
+            <View>
+                <Text style={styles.header}>{item.name}</Text>
+                <Text style={styles.subheader}>Cantidad: {item.quantiy}</Text>
+            </View>
             <Text style={styles.header}>$ {item.price}</Text>
 
 
@@ -41,6 +44,9 @@ const styles = StyleSheet.create({
     header: {
         fontSize: 18,
         color: 'white',
+    },
+    subheader: {
+        color: 'lightgray',
     },
     detail: {
         marginRight: 20,
