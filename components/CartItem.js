@@ -32,7 +32,6 @@ const styles = StyleSheet.create({
     },
     header: {
         fontSize: 18,
-        fontFamily: 'OpenSansBold',
     },
     detail: {
         flex: 1,
@@ -43,7 +42,6 @@ const styles = StyleSheet.create({
     },
     text: {
         fontSize: 16,
-        fontFamily: 'OpenSans',
     },
 
 })

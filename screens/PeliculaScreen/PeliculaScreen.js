@@ -5,6 +5,7 @@ import { AirbnbRating } from 'react-native-ratings';
 
 export const PeliculaScreen = ({ route }) => {
 
+
     const pelicula = useSelector(state => state.peliculas.list.find((pelicula) => pelicula.id === route.params.id));
 
     return (
@@ -67,6 +68,7 @@ export const PeliculaScreen = ({ route }) => {
 
 const styles = StyleSheet.create({
     container: {
+        height: '100%',
         paddingVertical: 25,
         paddingHorizontal: 25,
         backgroundColor: 'black',

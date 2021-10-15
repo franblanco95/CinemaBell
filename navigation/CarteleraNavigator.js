@@ -23,9 +23,15 @@ const CarteleraStackNavigator = () => (
 
     >
 
-        <Stack.Screen name="CinemaBell" component={CarteleraScreen} />
+        <Stack.Screen
+            name="CinemaBell"
+            component={CarteleraScreen}
+        />
 
-        <Stack.Screen name="Pelicula" component={PeliculaScreen} />
+        <Stack.Screen
+            name="Pelicula"
+            component={PeliculaScreen}
+            options={({ route }) => ({ title: route.params.name })} />
 
     </Stack.Navigator>
 

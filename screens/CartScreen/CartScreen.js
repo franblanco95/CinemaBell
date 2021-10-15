@@ -21,9 +21,10 @@ export const CartScreen = () => {
     return (
         <View style={styles.container}>
             <View style={styles.list}>
+                {/* {console.log(items)} */}
                 <FlatList
                     data={items}
-                    keyExtractor={item => item.id === id}
+                    keyExtractor={item => item.id}
                     renderItem={renderItem}
                 />
             </View>
@@ -42,7 +43,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 12,
-        backgroundColor: '#fff'
+        backgroundColor: 'white'
     },
     list: {
         flex: 1,
@@ -65,7 +66,6 @@ const styles = StyleSheet.create({
     },
     text: {
         fontSize: 18,
-        fontFamily: 'OpenSansBold',
         padding: 8,
     },
 

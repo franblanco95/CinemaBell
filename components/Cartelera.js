@@ -11,7 +11,7 @@ export const Cartelera = ({ pelicula, navigation }) => {
 
                     {pelicula?.map(pelicula => {
                         return (
-                            <TouchableOpacity key={pelicula.id} onPress={() => navigation.navigate('Pelicula', { id: pelicula.id })}>
+                            <TouchableOpacity key={pelicula.id} onPress={() => navigation.navigate('Pelicula', { id: pelicula.id, name: `${pelicula.name}` })}>
                                 <View style={styles.pelicula}>
                                     <Image
                                         style={styles.imagen}

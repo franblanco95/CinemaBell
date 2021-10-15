@@ -25,7 +25,11 @@ const ComidaStackNavigator = () => (
     >
 
         <Stack.Screen name="Comida" component={FoodScreen} />
-        <Stack.Screen name="Pochoclo" component={PochocloScreen} />
+        <Stack.Screen
+            name="Pochoclo"
+            component={PochocloScreen}
+            options={({ route }) => ({ title: route.params.name })}
+        />
         <Stack.Screen name="Cart" component={CartScreen} />
 
     </Stack.Navigator>
