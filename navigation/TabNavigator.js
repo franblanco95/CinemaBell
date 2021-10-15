@@ -19,8 +19,8 @@ export default function TabNavigator() {
                 headerShown: false,
                 tabBarShowLabel: false,
                 tabBarStyle: { ...styles.shadow, ...styles.tabBar },
-                tabBarActiveTintColor: "white",
-                tabBarInactiveTintColor: "rgba(0,0,0,0.4)",
+                tabBarActiveTintColor: "#e33e38",
+                tabBarInactiveTintColor: "#9da1bd",
             }}
 
         >
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
         borderTopStartRadius: 15,
         borderTopEndRadius: 15,
         height: 90,
-        backgroundColor: 'rgb(0, 25, 49)',
+        backgroundColor: 'white',
         borderTopWidth: 0,
     },
 

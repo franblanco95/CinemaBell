@@ -17,15 +17,14 @@ export const FoodScreen = ({ navigation }) => {
                 data={comidas}
                 renderItem={renderItem}
                 keyExtractor={item => item.id}
-                numColumns={1}
+                numColumns={2}
                 contentContainerStyle={styles.flatlist}
             />
-            <Text style={{ color: 'white' }}> Precio Total</Text>
-
             <FAB
                 icon={<Ionicons name="cart" size={24} color="white" />}
                 placement="right"
-                color="cyan"
+                color="#e33e38"
+                style={{ marginBottom: 100 }}
                 onPress={() => navigation.navigate('Cart')}
             />
 
@@ -35,9 +34,11 @@ export const FoodScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     container: {
-        height: 550,
-        backgroundColor: 'black',
+        flex: 1,
+        backgroundColor: '#16191e',
+        alignItems: 'center',
     },
     flatlist: {
+        // backgroundColor: 'white',
     },
 });

@@ -16,12 +16,10 @@ export const CartScreen = () => {
 
     const renderItem = (data) => (
         <CartItem item={data.item} onDelete={handlerDeleteItem} />
-
     )
     return (
         <View style={styles.container}>
             <View style={styles.list}>
-                {/* {console.log(items)} */}
                 <FlatList
                     data={items}
                     keyExtractor={item => item.id}
@@ -41,9 +39,9 @@ export const CartScreen = () => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        height: 550,
         padding: 12,
-        backgroundColor: 'white'
+        backgroundColor: '#16191e'
     },
     list: {
         flex: 1,

@@ -68,10 +68,9 @@ export const PeliculaScreen = ({ route }) => {
 
 const styles = StyleSheet.create({
     container: {
-        height: '100%',
         paddingVertical: 25,
         paddingHorizontal: 25,
-        backgroundColor: 'black',
+        backgroundColor: '#16191e',
     },
     imagen: {
         width: 230,
@@ -115,6 +114,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         marginHorizontal: 15,
         marginTop: 15,
+        marginBottom: 100,
     },
     touchableText: {
         fontSize: 17,

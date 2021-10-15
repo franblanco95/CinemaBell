@@ -1,22 +1,27 @@
 import React from 'react'
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
+import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 
 export const CartItem = ({ item, onDelete }) => {
     return (
         <View style={styles.container}>
 
-            <View>
-                <Text style={styles.header}> {item.name}</Text>
-            </View>
+            <Image
+                source={item.img}
+                resizeMode='cover'
+            />
 
-            <View style={styles.detail}>
+            <Text style={styles.header}> {item.name}</Text>
 
-                <TouchableOpacity onPress={() => onDelete(item.id)}>
-                    <Ionicons name="trash" size={24} color="yellow" />
-                </TouchableOpacity>
+            <Text style={styles.header}>$ {item.price}</Text>
 
-            </View>
+
+            <TouchableOpacity
+                style={styles.detail}
+                onPress={() => onDelete(item.id)}>
+                <Ionicons name="trash" size={24} color="#e33e38" />
+            </TouchableOpacity>
+
 
         </View>
 
@@ -24,21 +29,21 @@ export const CartItem = ({ item, onDelete }) => {
 }
 
 const styles = StyleSheet.create({
-    item: {
-        flex: 1,
-        padding: 8,
-        borderBottomWidth: 1,
-        borderBottomColor: '#ccc',
+    container: {
+        backgroundColor: '#2f3441',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        borderRadius: 5,
+        marginBottom: 10,
+
     },
     header: {
         fontSize: 18,
+        color: 'white',
     },
     detail: {
-        flex: 1,
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        alignItems: 'center',
-        justifyContent: 'space-between',
+        marginRight: 20,
     },
     text: {
         fontSize: 16,

@@ -13,7 +13,7 @@ const ComidaStackNavigator = () => (
         initialRouteName="Home"
         screenOptions={{
             headerStyle: {
-                backgroundColor: Platform.OS === 'android' ? 'rgb(10, 25, 49)' : 'rgb(10, 25, 49)',
+                backgroundColor: Platform.OS === 'android' ? '#16191e' : 'rgb(10, 25, 49)',
             },
             headerTintColor: Platform.OS === 'android' ? 'white' : 'white',
             headerTitleStyle: {

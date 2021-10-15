@@ -20,13 +20,13 @@ export const Item = ({ comida, navigation }) => {
 
 const styles = StyleSheet.create({
     container: {
-        flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        backgroundColor: 'rgba(100, 100, 100, 0.2)',
+        backgroundColor: '#2f3441',
         borderRadius: 4,
         marginHorizontal: 15,
-        marginVertical: 10,
+        marginVertical: 15,
+        padding: 25,
     },
     text: {
         color: 'white',

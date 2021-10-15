@@ -61,8 +61,9 @@ export const FuturosEstrenos = ({ pelicula, navigation }) => {
 const styles = StyleSheet.create({
 
     container: {
-        backgroundColor: 'rgb(21, 21, 21)',
+        backgroundColor: '#16191e',
         padding: 10,
+        marginBottom: 75,
     },
     pelicula: {
         marginBottom: 15,
