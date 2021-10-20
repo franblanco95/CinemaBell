@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 
 export const CartItem = ({ item, onDelete }) => {
+
     return (
         <View style={styles.container}>
 
@@ -11,10 +12,9 @@ export const CartItem = ({ item, onDelete }) => {
                 resizeMode='cover'
             />
 
-            {console.log(item.quantity)}
             <View>
                 <Text style={styles.header}>{item.name}</Text>
-                <Text style={styles.subheader}>Cantidad: {item.quantiy}</Text>
+                <Text style={styles.subheader}>Cantidad: {item.quantity}</Text>
             </View>
             <Text style={styles.header}>$ {item.price}</Text>
 

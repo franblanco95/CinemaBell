@@ -8,6 +8,7 @@ export const MainNavigator = () => {
 
     const userId = useSelector(state => state.auth.userId);
 
+
     return (
 
         <NavigationContainer>

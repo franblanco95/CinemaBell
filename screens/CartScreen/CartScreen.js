@@ -1,10 +1,10 @@
 import React from 'react'
-import { View, Text, TouchableOpacity, FlatList, StyleSheet } from 'react-native'
+import { View, Text, TouchableOpacity, FlatList, StyleSheet, Image, Dimensions } from 'react-native'
 import { useSelector, useDispatch } from 'react-redux'
 import { CartItem } from '../../components/CartItem'
 import { confirmCart, removeItem } from '../../store/actions/cart.actions'
 
-export const CartScreen = () => {
+export const CartScreen = ({ navigation }) => {
 
     const dispatch = useDispatch();
     const items = useSelector(state => state.cart.items)
@@ -21,21 +21,41 @@ export const CartScreen = () => {
     return (
 
         <View style={styles.container}>
-            <View style={styles.list}>
-                <FlatList
-                    data={items}
-                    keyExtractor={item => item.id}
-                    renderItem={renderItem}
-                />
-            </View>
-            <View style={styles.footer}>
 
-                <TouchableOpacity style={styles.confirm} onPress={handlerConfirmCart}>
-                    <Text style={styles.text}>Confirmar</Text>
-                    <Text style={styles.text}>$ {total}</Text>
-                </TouchableOpacity>
+            {total === 0
+                ?
+                <View style={styles.emptycontainer}>
+                    <Image source={require('../../assets/empty-cart.png')} />
+                    <Text style={styles.cartText}> Tu carrito está vacío</Text>
+                    <Text style={styles.cartSubtext}> No tienes ningún producto en tu carrito de compra.</Text>
+                    <Text style={styles.cartSubtext}> Ve a comprar algo!</Text>
+                    <TouchableOpacity
+                        style={styles.button}
+                        onPress={() => navigation.goBack()}
+                    >
+                        <Text style={styles.buttontext}>Tienda</Text>
 
-            </View>
+                    </TouchableOpacity>
+                </View>
+                :
+                <>
+                    <View style={styles.list}>
+                        <FlatList
+                            data={items}
+                            keyExtractor={item => item.id}
+                            renderItem={renderItem}
+                        />
+                    </View>
+                    <View style={styles.footer}>
+
+                        <TouchableOpacity style={styles.confirmButton} onPress={handlerConfirmCart}>
+                            <Text style={styles.text}>Confirmar</Text>
+                            <Text style={styles.text}>$ {total}</Text>
+                        </TouchableOpacity>
+
+                    </View>
+                </>
+            }
         </View >
     )
 }
@@ -43,32 +63,58 @@ export const CartScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        justifyContent: 'space-between',
+        marginBottom: 80,
         padding: 12,
         backgroundColor: '#16191e',
-        marginBottom: 80,
-    },
-    list: {
-        flex: 1,
+        height: Dimensions.get('window').height,
     },
     footer: {
         padding: 12,
         borderTopColor: '#ccc',
         borderTopWidth: 1,
+
     },
-    confirm: {
-        backgroundColor: '#ccc',
+    confirmButton: {
+        backgroundColor: '#e33e38',
         borderRadius: 10,
         padding: 10,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
     },
-    total: {
-        flexDirection: 'row',
-    },
     text: {
+        color: 'white',
         fontSize: 18,
         padding: 8,
+    },
+    emptycontainer: {
+        height: Dimensions.get('window').height - 250,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    cartText: {
+        color: 'white',
+        fontSize: 20,
+        fontWeight: 'bold',
+        marginVertical: 20,
+    },
+    cartSubtext: {
+        color: 'gray',
+        fontSize: 15,
+    },
+    button: {
+        marginTop: 25,
+        borderRadius: 20,
+        borderWidth: 1,
+        backgroundColor: '#e33e38',
+        paddingVertical: 10,
+        paddingHorizontal: 15,
+    },
+    buttontext: {
+        color: 'white',
+        fontSize: 17,
+        fontWeight: 'bold',
     },
 
 })

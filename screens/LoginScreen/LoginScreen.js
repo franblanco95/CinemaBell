@@ -44,37 +44,38 @@ export const LoginScreen = () => {
   }, [formDispatch]);
 
   return (
+
     <AuthScreenWrapper
-      title="INGRESAR"
-      message="¿Aún no tienes cuenta?"
-      buttonText="Ir al registro"
-      buttonPath="Registro"
-    >
-      <Input
-        id="email"
-        label="Email"
-        keyboardType="email-address"
-        autoCapitalize="none"
-        errorText="Por favor ingresa un email válido"
-        required
-        email
-        onInputChange={onInputChangeHandler}
-      />
-      <Input
-        id="password"
-        label="Password"
-        secureTextEntry
-        autoCapitalize="none"
-        errorText="Ingrese contraseña"
-        required
-        onInputChange={onInputChangeHandler}
-      />
-      <Button
         title="INGRESAR"
-        onPress={handleLogIn}
-        buttonStyle={styles.button}
-      />
-    </AuthScreenWrapper>
+        message="¿Aún no tienes cuenta?"
+        buttonText="Ir al registro"
+        buttonPath="Registro"
+      >
+        <Input
+          id="email"
+          label="Email"
+          keyboardType="email-address"
+          autoCapitalize="none"
+          errorText="Por favor ingresa un email válido"
+          required
+          email
+          onInputChange={onInputChangeHandler}
+        />
+        <Input
+          id="password"
+          label="Password"
+          secureTextEntry
+          autoCapitalize="none"
+          errorText="Ingrese contraseña"
+          required
+          onInputChange={onInputChangeHandler}
+        />
+        <Button
+          title="INGRESAR"
+          onPress={handleLogIn}
+          buttonStyle={styles.button}
+        />
+      </AuthScreenWrapper>
   );
 }
 

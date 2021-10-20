@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
-import { LocationSelector } from '../../components/LocationSelector'
+import { StyleSheet, Text, View, Dimensions } from 'react-native'
 import MapView, { Marker } from 'react-native-maps';
+import { LocationSelector } from '../../components/LocationSelector'
 
 export const CinesScreen = () => {
 
@@ -39,9 +39,15 @@ export const CinesScreen = () => {
     return (
         // {/* <LocationSelector onLocation={handlePickLocation} /> */}
         <View style={styles.container}>
+
+            <Text></Text>
+
+
+
+
             <MapView
                 initialRegion={initialRegion}
-                style={styles.view}
+                style={styles.map}
             // onPress={handleSelectLocation}
             >
 
@@ -66,10 +72,10 @@ const styles = StyleSheet.create({
         backgroundColor: '#16191e',
         alignItems: 'center',
     },
-    view: {
+    map: {
         marginTop: 25,
-        width: '85%',
-        height: '65%',
+        width: Dimensions.get('window').width - 60,
+        height: Dimensions.get('window').height - 250,
     }
 
 })

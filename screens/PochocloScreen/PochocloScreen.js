@@ -6,14 +6,26 @@ import { addItem } from '../../store/actions/cart.actions'
 
 export const PochocloScreen = ({ route }) => {
 
-    const [counter, setCounter] = useState(0)
+    const [counter, setCounter] = useState(1)
 
     const comida = useSelector(state => state.comidas.list.find((comida) => comida.id === route.params.id));
 
     const dispatch = useDispatch();
 
     const handlerAddItemCart = () => {
-        dispatch(addItem(comida));
+        dispatch(addItem(comida, counter));
+    }
+
+    const sumar = () => {
+        if (counter < comida.stock) {
+            setCounter(counter + 1)
+        }
+    }
+
+    const restar = () => {
+        if (counter > 1) {
+            setCounter(counter - 1)
+        }
     }
 
     return (
@@ -34,7 +46,7 @@ export const PochocloScreen = ({ route }) => {
 
                             <TouchableOpacity
                                 style={styles.counter}
-                                onPress={() => setCounter(counter - 1)}>
+                                onPress={restar}>
                                 <Text style={styles.text}>-</Text>
                             </TouchableOpacity>
 
@@ -42,7 +54,7 @@ export const PochocloScreen = ({ route }) => {
 
                             <TouchableOpacity
                                 style={styles.counter}
-                                onPress={() => setCounter(counter + 1)}>
+                                onPress={sumar}>
                                 <Text style={styles.text}>+</Text>
                             </TouchableOpacity>
                         </View>

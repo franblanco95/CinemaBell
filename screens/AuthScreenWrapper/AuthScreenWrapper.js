@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View, StyleSheet, KeyboardAvoidingView, TouchableOpacity } from 'react-native'
+import { Text, View, StyleSheet, KeyboardAvoidingView, TouchableOpacity, Image } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 
 export const AuthScreenWrapper = ({ children, title, message, buttonText, buttonPath }) => {
@@ -11,8 +11,12 @@ export const AuthScreenWrapper = ({ children, title, message, buttonText, button
             behavior="height"
             style={styles.screen}
         >
-
             <View style={styles.screen}>
+                <Image
+                    source={require("../../assets/icon.png")}
+                    resizeMode='contain'
+                    style={styles.image}
+                />
                 <Text style={styles.title}>{title}</Text>
                 {children}
                 <View style={styles.prompt}>
@@ -58,5 +62,8 @@ const styles = StyleSheet.create({
     promptButton: {
         fontSize: 16,
         color: 'green',
+    },
+    image: {
+        height: 150,
     },
 });
