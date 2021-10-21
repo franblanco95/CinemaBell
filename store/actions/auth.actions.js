@@ -5,7 +5,7 @@ export const SIGNUP = 'SIGNUP';
 export const LOGIN = 'LOGIN';
 export const LOOKUP = 'LOOKUP';
 
-export const signup = (email, password, name) => {
+export const signup = (name, email, password) => {
     return async dispatch => {
         const response = await fetch(URL_AUTH_API, {
             method: 'POST',
@@ -30,6 +30,20 @@ export const signup = (email, password, name) => {
         }
 
         const data = await response.json();
+
+        const updateUser = await fetch(URL_UPDATE_API, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                idToken: data.idToken,
+                displayName: name,
+                returnSecureToken: true,
+            }),
+        });
+
+        const userData = await updateUser.json()
 
 
         await AsyncStorage.setItem('@token', data.idToken);
@@ -114,28 +128,23 @@ export const lookupUser = (token) => {
     }
 }
 
-// const updateUser = await fetch(URL_UPDATE_API, {
-//     method: 'POST',
-//     headers: {
-//         'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify({
-//         idToken: data.idToken,
-//         displayName: name,
+export const cambio = (token) => {
+    return async dispatch => {
+        const response = await fetch(URL_UPDATE_API, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                idToken: token,
+            }),
+        });
 
-//         returnSecureToken: true,
-//     }),
-// });
+        const data = await response.json();
 
-// const userData = await updateUser.json()
-
-// const data = await response.json();
-// console.log(data)
-
-// dispatch({
-//     type: LOGIN,
-//     token: userData.idToken,
-//     userId: userData.localId,
-// });
-//     }
-// }
+        dispatch({
+            type: LOOKUP,
+            data,
+        });
+    }
+}

@@ -4,6 +4,7 @@ import { Avatar } from 'react-native-elements';
 import { useDispatch, useSelector } from 'react-redux';
 import { lookupUser } from '../../store/actions/auth.actions';
 import { ToggleTheme } from '../../store/actions/theme.action';
+import { loadImageFromGallery } from '../../utils/permission';
 
 
 export const ProfileScreen = () => {
@@ -20,8 +21,13 @@ export const ProfileScreen = () => {
 
     console.log(user)
 
-
     const [value, setValue] = useState(theme)
+
+    const changePhoto = async () => {
+        const result = await loadImageFromGallery([1, 1])
+        console.log(result)
+    }
+
 
     return (
         <>
@@ -29,18 +35,18 @@ export const ProfileScreen = () => {
                 ? <Text>Hola</Text>
                 :
                 <View style={styles.container}>
-                    <View style={styles.picture}></View>
-                    {/* <Avatar
-                rounded
-                size="large"
-                containerStyle={styles.avatar}
-                source={
-                    user.photoURL
-                        ? { uri: photoURL }
-                        : require('../../assets/default-avatar.jpg')
-                }
-            /> */}
-                    <Text style={styles.text}>`Francisco Blanco tu mail es ${user.users[0].email}`</Text>
+                    <Avatar
+                        rounded
+                        size="large"
+                        onPress={changePhoto}
+                        containerStyle={styles.avatar}
+                        source={
+                            user.photoURL
+                                ? { uri: photoURL }
+                                : require('../../assets/default-avatar.jpg')
+                        }
+                    />
+                    <Text style={styles.text}>{user.users[0].displayName}</Text>
 
                     <View style={styles.item}>
                         <Text style={styles.text}>Modo Nocturno</Text>
@@ -75,9 +81,7 @@ const styles = StyleSheet.create({
     avatar: {
 
     },
-    picture: {
-        backgroundColor: 'white',
-        borderRadius: 50,
+    avatar: {
         width: 100,
         height: 100,
         marginVertical: 15,
