@@ -1,10 +1,11 @@
-import { URL_AUTH_API, URL_LOGIN_API } from '../../constants/database';
+import { URL_AUTH_API, URL_LOGIN_API, URL_UPDATE_API, URL_LOOKUP_API } from '../../constants/database';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const SIGNUP = 'SIGNUP';
 export const LOGIN = 'LOGIN';
+export const LOOKUP = 'LOOKUP';
 
-export const signup = (email, password) => {
+export const signup = (email, password, name) => {
     return async dispatch => {
         const response = await fetch(URL_AUTH_API, {
             method: 'POST',
@@ -29,6 +30,7 @@ export const signup = (email, password) => {
         }
 
         const data = await response.json();
+
 
         await AsyncStorage.setItem('@token', data.idToken);
         await AsyncStorage.setItem('@userId', data.localId);
@@ -67,6 +69,7 @@ export const login = (email, password) => {
 
         const data = await response.json();
 
+
         dispatch({
             type: LOGIN,
             token: data.idToken,
@@ -89,3 +92,50 @@ export const initAuthentication = () => {
         }
     }
 }
+
+export const lookupUser = (token) => {
+    return async dispatch => {
+        const response = await fetch(URL_LOOKUP_API, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                idToken: token,
+            }),
+        });
+
+        const data = await response.json();
+
+        dispatch({
+            type: LOOKUP,
+            data,
+        });
+    }
+}
+
+// const updateUser = await fetch(URL_UPDATE_API, {
+//     method: 'POST',
+//     headers: {
+//         'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify({
+//         idToken: data.idToken,
+//         displayName: name,
+
+//         returnSecureToken: true,
+//     }),
+// });
+
+// const userData = await updateUser.json()
+
+// const data = await response.json();
+// console.log(data)
+
+// dispatch({
+//     type: LOGIN,
+//     token: userData.idToken,
+//     userId: userData.localId,
+// });
+//     }
+// }

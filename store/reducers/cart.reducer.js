@@ -16,7 +16,6 @@ const CartReducer = (state = INITIAL_STATE, action) => {
         case ADD_ITEM:
             const index = state.items.findIndex(item => item.id === action.item.id)
             if (index === -1) {
-                console.log(action.counter)
                 const item = { ...action.item, quantity: action.counter };
                 const updateCart = [...state.items, item];
 
@@ -28,8 +27,6 @@ const CartReducer = (state = INITIAL_STATE, action) => {
             }
 
             const items = state.items.map(item => {
-                console.log('hola2')
-                //falta sumar action.counter
                 if (item.id === action.item.id) item.quantity = item.quantity + action.counter
                 return item
             })
@@ -40,7 +37,6 @@ const CartReducer = (state = INITIAL_STATE, action) => {
             };
         case REMOVE_ITEM:
             const updateItems = state.items.filter(item => item.id !== action.itemID)
-            console.log('hola3')
             return {
                 ...state,
                 items: updateItems,

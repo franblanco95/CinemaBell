@@ -1,20 +1,36 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { View, Text, StyleSheet, Switch, Dimensions } from 'react-native'
 import { Avatar } from 'react-native-elements';
 import { useDispatch, useSelector } from 'react-redux';
+import { lookupUser } from '../../store/actions/auth.actions';
 import { ToggleTheme } from '../../store/actions/theme.action';
 
 
 export const ProfileScreen = () => {
 
     const dispatch = useDispatch();
+
     const theme = useSelector(({ themeReducer }) => themeReducer);
+    const user = useSelector(state => state.auth.data)
+    const token = useSelector(state => state.auth.token)
+
+    useEffect(() => {
+        dispatch(lookupUser(token))
+    }, [])
+
+    console.log(user)
+
+
     const [value, setValue] = useState(theme)
 
     return (
-        <View style={styles.container}>
-            <View style={styles.picture}></View>
-            {/* <Avatar
+        <>
+            {!user
+                ? <Text>Hola</Text>
+                :
+                <View style={styles.container}>
+                    <View style={styles.picture}></View>
+                    {/* <Avatar
                 rounded
                 size="large"
                 containerStyle={styles.avatar}
@@ -24,26 +40,28 @@ export const ProfileScreen = () => {
                         : require('../../assets/default-avatar.jpg')
                 }
             /> */}
-            <Text style={styles.text}>Francisco Blanco</Text>
+                    <Text style={styles.text}>`Francisco Blanco tu mail es ${user.users[0].email}`</Text>
 
-            <View style={styles.item}>
-                <Text style={styles.text}>Modo Nocturno</Text>
-                {console.log(theme)}
-                <Switch
-                    value={value}
-                    onValueChange={(val) => { setValue(val); dispatch(ToggleTheme(val)) }}
-                    thumbColor={'#e33e38'}
-                    trackColor={{ false: "#767577", true: "#ffffff" }}
-                    ios_backgroundColor="#3e3e3e"
-                />
-            </View>
+                    <View style={styles.item}>
+                        <Text style={styles.text}>Modo Nocturno</Text>
+                        {console.log(theme)}
+                        <Switch
+                            value={value}
+                            onValueChange={(val) => { setValue(val); dispatch(ToggleTheme(val)) }}
+                            thumbColor={'#e33e38'}
+                            trackColor={{ false: "#767577", true: "#ffffff" }}
+                            ios_backgroundColor="#3e3e3e"
+                        />
+                    </View>
 
-            <View style={styles.item}>
-                <Text style={styles.text}>Modo Nocturno</Text>
+                    <View style={styles.item}>
+                        <Text style={styles.text}>Modo Nocturno</Text>
 
-            </View>
-        </View>
+                    </View>
+                </View>}
+        </>
     )
+
 }
 
 

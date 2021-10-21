@@ -1,8 +1,9 @@
-import { LOGIN, SIGNUP } from "../actions/auth.actions";
+import { LOGIN, SIGNUP, LOOKUP } from "../actions/auth.actions";
 
 const INITIAL_STATE = {
     token: null,
     userId: null,
+    data: null,
 };
 
 const AuthReducer = (state = INITIAL_STATE, action) => {
@@ -19,6 +20,11 @@ const AuthReducer = (state = INITIAL_STATE, action) => {
                 token: action.token,
                 userId: action.userId,
             };
+        case LOOKUP:
+            return {
+                ...state,
+                data: action.data,
+            }
         default:
             return state;
     }
