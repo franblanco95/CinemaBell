@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { View, Text, StyleSheet, Switch, Dimensions } from 'react-native'
+import { View, Text, StyleSheet, Switch, Dimensions, TouchableOpacity } from 'react-native'
 import { Avatar } from 'react-native-elements';
 import { useDispatch, useSelector } from 'react-redux';
-import { lookupUser } from '../../store/actions/auth.actions';
+import { logout, lookupUser } from '../../store/actions/auth.actions';
 import { ToggleTheme } from '../../store/actions/theme.action';
 import { loadImageFromGallery } from '../../utils/permission';
 
@@ -28,6 +28,9 @@ export const ProfileScreen = () => {
         console.log(result)
     }
 
+    const closeSession = () => {
+        dispatch(logout())
+    }
 
     return (
         <>
@@ -60,10 +63,11 @@ export const ProfileScreen = () => {
                         />
                     </View>
 
-                    <View style={styles.item}>
-                        <Text style={styles.text}>Modo Nocturno</Text>
-
-                    </View>
+                    <TouchableOpacity
+                        style={styles.item}
+                        onPress={closeSession}>
+                        <Text style={styles.text}>Cerrar Sesión</Text>
+                    </TouchableOpacity>
                 </View>}
         </>
     )

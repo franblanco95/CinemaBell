@@ -83,6 +83,9 @@ export const login = (email, password) => {
 
         const data = await response.json();
 
+        await AsyncStorage.setItem('@token', data.idToken);
+        await AsyncStorage.setItem('@userId', data.localId);
+
 
         dispatch({
             type: LOGIN,
@@ -92,6 +95,7 @@ export const login = (email, password) => {
     }
 }
 
+// Para cargar el token del usuario que ya accedio a la app del cache de async storage
 export const initAuthentication = () => {
     return async dispatch => {
         const token = await AsyncStorage.getItem('@token')
@@ -107,6 +111,7 @@ export const initAuthentication = () => {
     }
 }
 
+// Para traer la informacion del usuario Firebase API
 export const lookupUser = (token) => {
     return async dispatch => {
         const response = await fetch(URL_LOOKUP_API, {
@@ -128,23 +133,20 @@ export const lookupUser = (token) => {
     }
 }
 
-export const cambio = (token) => {
+
+export const logout = () => {
     return async dispatch => {
-        const response = await fetch(URL_UPDATE_API, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                idToken: token,
-            }),
-        });
+        const token = await AsyncStorage.removeItem('@token')
+        const userId = await AsyncStorage.removeItem('@userId');
+        console.log('hola')
 
-        const data = await response.json();
-
-        dispatch({
-            type: LOOKUP,
-            data,
-        });
+        if (token !== null && userId !== null) {
+            dispatch({
+                type: SIGNUP,
+                token,
+                userId,
+            });
+        }
     }
 }
+

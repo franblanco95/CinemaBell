@@ -1,18 +1,21 @@
 import React, { useState } from 'react'
-import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native'
+import { Text, View, StyleSheet, Image, TouchableOpacity, Modal, Pressable } from 'react-native'
 import { useSelector, useDispatch } from 'react-redux';
 import { addItem } from '../../store/actions/cart.actions'
 
 
 export const PochocloScreen = ({ route }) => {
 
-    const [counter, setCounter] = useState(1)
+    const [counter, setCounter] = useState(1);
+
+    const [modalVisible, setModalVisible] = useState(false);
 
     const comida = useSelector(state => state.comidas.list.find((comida) => comida.id === route.params.id));
 
     const dispatch = useDispatch();
 
     const handlerAddItemCart = () => {
+        setModalVisible(true)
         dispatch(addItem(comida, counter));
     }
 
@@ -59,6 +62,28 @@ export const PochocloScreen = ({ route }) => {
                             </TouchableOpacity>
                         </View>
                     </View>
+
+                    <Modal
+                        animationType="slide"
+                        transparent={true}
+                        visible={modalVisible}
+                        onRequestClose={() => {
+                            Alert.alert("Modal has been closed.");
+                            setModalVisible(!modalVisible);
+                        }}
+                    >
+                        <View style={styles.centeredView}>
+                            <View style={styles.modalView}>
+                                <Text style={styles.modalText}>El item '' se agrego al carrito</Text>
+                                <Pressable
+                                    style={[styles.buttonModal, styles.buttonClose]}
+                                    onPress={() => setModalVisible(!modalVisible)}
+                                >
+                                    <Text style={styles.textStyle}>Cerrar</Text>
+                                </Pressable>
+                            </View>
+                        </View>
+                    </Modal>
 
 
                     <TouchableOpacity
@@ -126,6 +151,50 @@ const styles = StyleSheet.create({
         backgroundColor: '#e33e38',
         paddingVertical: 10,
         paddingHorizontal: 15,
+    },
+
+    centeredView: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: 22
+    },
+    modalView: {
+        margin: 20,
+        backgroundColor: "white",
+        borderRadius: 20,
+        padding: 35,
+        alignItems: "center",
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5
+    },
+    buttonModal: {
+        borderRadius: 20,
+        padding: 10,
+        elevation: 2
+    },
+    buttonOpen: {
+        backgroundColor: "#F194FF",
+    },
+    buttonClose: {
+        backgroundColor: "#2196F3",
+    },
+    textStyle: {
+        color: "white",
+        fontWeight: "bold",
+        textAlign: "center"
+    },
+    modalText: {
+        marginBottom: 15,
+        textAlign: "center"
     }
+
+
 
 })
