@@ -4,6 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 export const SIGNUP = 'SIGNUP';
 export const LOGIN = 'LOGIN';
 export const LOOKUP = 'LOOKUP';
+export const LOGOUT = 'LOGOUT';
 
 export const signup = (name, email, password) => {
     return async dispatch => {
@@ -138,15 +139,13 @@ export const logout = () => {
     return async dispatch => {
         const token = await AsyncStorage.removeItem('@token')
         const userId = await AsyncStorage.removeItem('@userId');
-        console.log('hola')
 
-        if (token !== null && userId !== null) {
-            dispatch({
-                type: SIGNUP,
-                token,
-                userId,
-            });
-        }
+        dispatch({
+            type: LOGOUT,
+            token,
+            userId,
+        });
     }
 }
+
 

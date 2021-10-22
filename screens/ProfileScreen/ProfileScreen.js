@@ -12,6 +12,8 @@ export const ProfileScreen = () => {
     const dispatch = useDispatch();
 
     const theme = useSelector(({ themeReducer }) => themeReducer);
+    const [value, setValue] = useState(theme)
+
     const user = useSelector(state => state.auth.data)
     const token = useSelector(state => state.auth.token)
 
@@ -21,7 +23,6 @@ export const ProfileScreen = () => {
 
     console.log(user)
 
-    const [value, setValue] = useState(theme)
 
     const changePhoto = async () => {
         const result = await loadImageFromGallery([1, 1])
@@ -51,24 +52,28 @@ export const ProfileScreen = () => {
                     />
                     <Text style={styles.text}>{user.users[0].displayName}</Text>
 
-                    <View style={styles.item}>
-                        <Text style={styles.text}>Modo Nocturno</Text>
-                        {console.log(theme)}
-                        <Switch
-                            value={value}
-                            onValueChange={(val) => { setValue(val); dispatch(ToggleTheme(val)) }}
-                            thumbColor={'#e33e38'}
-                            trackColor={{ false: "#767577", true: "#ffffff" }}
-                            ios_backgroundColor="#3e3e3e"
-                        />
-                    </View>
+                    <View style={styles.configContainer}>
 
-                    <TouchableOpacity
-                        style={styles.item}
-                        onPress={closeSession}>
-                        <Text style={styles.text}>Cerrar Sesión</Text>
-                    </TouchableOpacity>
-                </View>}
+                        <View style={styles.item}>
+                            <Text style={styles.text}>Modo Nocturno</Text>
+                            {console.log(theme)}
+                            <Switch
+                                value={value}
+                                onValueChange={(val) => { setValue(val); dispatch(ToggleTheme(val)) }}
+                                thumbColor={'#e33e38'}
+                                trackColor={{ false: "#767577", true: "#ffffff" }}
+                                ios_backgroundColor="#3e3e3e"
+                            />
+                        </View>
+
+                        <TouchableOpacity
+                            style={styles.closeSessionButton}
+                            onPress={closeSession}>
+                            <Text style={styles.text}>Cerrar Sesión</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            }
         </>
     )
 
@@ -77,10 +82,9 @@ export const ProfileScreen = () => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         backgroundColor: '#16191e',
         alignItems: 'center',
-        height: 800,
+        height: Dimensions.get('window').height - 60,
     },
     avatar: {
 
@@ -93,6 +97,10 @@ const styles = StyleSheet.create({
     text: {
         color: 'white',
     },
+    configContainer: {
+        height: '60%',
+        justifyContent: 'space-between',
+    },
     item: {
         flexDirection: 'row',
         alignItems: 'center',
@@ -102,5 +110,14 @@ const styles = StyleSheet.create({
         padding: 15,
         borderRadius: 10,
         marginVertical: 5,
+    },
+    closeSessionButton: {
+        alignItems: 'center',
+        backgroundColor: '#e33e38',
+        width: Dimensions.get('window').width - 50,
+        padding: 15,
+        borderRadius: 10,
+        marginVertical: 5,
+
     }
 })

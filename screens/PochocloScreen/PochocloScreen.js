@@ -35,6 +35,7 @@ export const PochocloScreen = ({ route }) => {
         <>
             <View style={styles.container}>
                 <View style={styles.main}>
+
                     <Image
                         source={comida.img}
                         resizeMode='cover'
@@ -63,8 +64,16 @@ export const PochocloScreen = ({ route }) => {
                         </View>
                     </View>
 
+                    <TouchableOpacity
+                        style={styles.button}
+                        onPress={handlerAddItemCart}
+                    >
+                        <Text style={styles.text}>Agregar al Carrito</Text>
+
+                    </TouchableOpacity>
+
                     <Modal
-                        animationType="slide"
+                        animationType="fade"
                         transparent={true}
                         visible={modalVisible}
                         onRequestClose={() => {
@@ -74,7 +83,7 @@ export const PochocloScreen = ({ route }) => {
                     >
                         <View style={styles.centeredView}>
                             <View style={styles.modalView}>
-                                <Text style={styles.modalText}>El item '' se agrego al carrito</Text>
+                                <Text style={styles.modalText}>{comida.name} se agregó al carrito</Text>
                                 <Pressable
                                     style={[styles.buttonModal, styles.buttonClose]}
                                     onPress={() => setModalVisible(!modalVisible)}
@@ -84,15 +93,6 @@ export const PochocloScreen = ({ route }) => {
                             </View>
                         </View>
                     </Modal>
-
-
-                    <TouchableOpacity
-                        style={styles.button}
-                        onPress={handlerAddItemCart}
-                    >
-                        <Text style={styles.text}>Agregar al Carrito</Text>
-
-                    </TouchableOpacity>
 
                 </View>
             </View>
@@ -157,13 +157,13 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        marginTop: 22
+        marginTop: 22,
     },
     modalView: {
         margin: 20,
         backgroundColor: "white",
-        borderRadius: 20,
-        padding: 35,
+        borderRadius: 10,
+        padding: 30,
         alignItems: "center",
         shadowColor: "#000",
         shadowOffset: {
@@ -175,9 +175,9 @@ const styles = StyleSheet.create({
         elevation: 5
     },
     buttonModal: {
-        borderRadius: 20,
+        borderRadius: 10,
         padding: 10,
-        elevation: 2
+        elevation: 4
     },
     buttonOpen: {
         backgroundColor: "#F194FF",

@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import TabNavigator from './TabNavigator';
 import LoginStackNavigator from './LoginNavigator';
 import { useDispatch, useSelector } from 'react-redux'
-import { initAuthentication } from '../store/actions/auth.actions';
+import { initAuthentication, logout } from '../store/actions/auth.actions';
 
 export const MainNavigator = () => {
 
