@@ -13,7 +13,7 @@ export const ComidaReducer = (state = initialState, action) => {
         case SELECT_COMIDA:
             return {
                 ...state,
-                selectedID: action.selectedID,
+                selectedID: action.comidaId,
             }
         default:
             return state;

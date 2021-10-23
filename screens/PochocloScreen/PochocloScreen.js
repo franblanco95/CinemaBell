@@ -4,13 +4,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addItem } from '../../store/actions/cart.actions'
 
 
-export const PochocloScreen = ({ route }) => {
+export const PochocloScreen = () => {
 
     const [counter, setCounter] = useState(1);
 
     const [modalVisible, setModalVisible] = useState(false);
 
-    const comida = useSelector(state => state.comidas.list.find((comida) => comida.id === route.params.id));
+    const comidaID = useSelector(state => state.comidas.selectedID)
+    const comida = useSelector(state => state.comidas.list.find(item => item.id === comidaID))
 
     const dispatch = useDispatch();
 

@@ -1,6 +1,6 @@
 export const SELECT_COMIDA = 'SELECT_COMIDA';
 
-export const selectComida = (id) => ({
+export const selectComida = (comidaId) => ({
     type: SELECT_COMIDA,
-    categoryID: id,
+    comidaId,
 });

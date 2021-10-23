@@ -1,18 +1,18 @@
 import React, { useState } from 'react'
 import { Text, View, Image, StyleSheet, TouchableOpacity } from 'react-native'
 
-export const Item = ({ comida, navigation }) => {
+export const Item = ({ item, onSelected }) => {
 
     return (
 
-        <TouchableOpacity style={styles.container} onPress={() => navigation.navigate('Pochoclo', { id: comida.id, name: `${comida.name}` })}>
+        <TouchableOpacity style={styles.container} onPress={() => onSelected(item)}>
 
             <Image
-                source={comida.img}
+                source={item.img}
                 resizeMode='cover'
             />
             <View>
-                <Text style={styles.text}>{comida.name}</Text>
+                <Text style={styles.text}>{item.name}</Text>
             </View>
         </TouchableOpacity>
     )

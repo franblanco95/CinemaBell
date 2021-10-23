@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { View, Text, StyleSheet, Switch, Dimensions, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, Switch, Dimensions, TouchableOpacity, ActivityIndicator } from 'react-native'
 import { Avatar } from 'react-native-elements';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout, lookupUser } from '../../store/actions/auth.actions';
@@ -14,6 +14,7 @@ export const ProfileScreen = () => {
     const theme = useSelector(({ themeReducer }) => themeReducer);
     const [value, setValue] = useState(theme)
 
+    console.log(value)
     const user = useSelector(state => state.auth.data)
     const token = useSelector(state => state.auth.token)
 
@@ -21,7 +22,7 @@ export const ProfileScreen = () => {
         dispatch(lookupUser(token))
     }, [])
 
-    console.log(user)
+    // console.log(user)
 
 
     const changePhoto = async () => {
@@ -34,11 +35,14 @@ export const ProfileScreen = () => {
     }
 
     return (
-        <>
+
+        <View style={styles.container}>
             {!user
-                ? <Text>Hola</Text>
-                :
-                <View style={styles.container}>
+                ? <ActivityIndicator
+                    size="large"
+                    color="#e33e38"
+                />
+                : <>
                     <Avatar
                         rounded
                         size="large"
@@ -72,9 +76,10 @@ export const ProfileScreen = () => {
                             <Text style={styles.text}>Cerrar Sesión</Text>
                         </TouchableOpacity>
                     </View>
-                </View>
+                </>
             }
-        </>
+        </View>
+
     )
 
 }
@@ -82,9 +87,9 @@ export const ProfileScreen = () => {
 
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
         backgroundColor: '#16191e',
         alignItems: 'center',
-        height: Dimensions.get('window').height - 60,
     },
     avatar: {
 
@@ -98,7 +103,7 @@ const styles = StyleSheet.create({
         color: 'white',
     },
     configContainer: {
-        height: '60%',
+        height: Dimensions.get('window').height - 300,
         justifyContent: 'space-between',
     },
     item: {
