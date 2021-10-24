@@ -5,16 +5,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logout, lookupUser } from '../../store/actions/auth.actions';
 import { ToggleTheme } from '../../store/actions/theme.action';
 import { loadImageFromGallery } from '../../utils/permission';
-
+// import * as FileSystem from 'expo-file-system'
 
 export const ProfileScreen = () => {
 
     const dispatch = useDispatch();
 
-    const theme = useSelector(({ themeReducer }) => themeReducer);
+    const theme = useSelector((themeReducer) => themeReducer);
     const [value, setValue] = useState(theme)
+    const [imagen, setImagen] = useState()
 
-    console.log(value)
     const user = useSelector(state => state.auth.data)
     const token = useSelector(state => state.auth.token)
 
@@ -24,11 +24,20 @@ export const ProfileScreen = () => {
 
     // console.log(user)
 
-
     const changePhoto = async () => {
         const result = await loadImageFromGallery([1, 1])
-        console.log(result)
+        setImagen(result.uri)
     }
+
+    // Funcion para cambiar la direccion temporal por una persistente
+
+    // const fileName = imagen.split('/').pop()
+    // console.log(`filename: ${fileName}`)
+    // const Path = FileSystem.documentDirectory + fileName;
+    // console.log(`Path: ${Path}`)
+    // const resultado = FileSystem.moveAsync({ from: imagen, to: Path })
+    // console.log(resultado)
+
 
     const closeSession = () => {
         dispatch(logout())
@@ -49,8 +58,8 @@ export const ProfileScreen = () => {
                         onPress={changePhoto}
                         containerStyle={styles.avatar}
                         source={
-                            user.photoURL
-                                ? { uri: photoURL }
+                            imagen !== undefined
+                                ? { uri: imagen }
                                 : require('../../assets/default-avatar.jpg')
                         }
                     />
@@ -59,8 +68,7 @@ export const ProfileScreen = () => {
                     <View style={styles.configContainer}>
 
                         <View style={styles.item}>
-                            <Text style={styles.text}>Modo Nocturno</Text>
-                            {console.log(theme)}
+                            <Text style={styles.text}>Modo Nocturno (En Proceso)</Text>
                             <Switch
                                 value={value}
                                 onValueChange={(val) => { setValue(val); dispatch(ToggleTheme(val)) }}
@@ -68,6 +76,7 @@ export const ProfileScreen = () => {
                                 trackColor={{ false: "#767577", true: "#ffffff" }}
                                 ios_backgroundColor="#3e3e3e"
                             />
+                            {/* {console.log(theme)} */}
                         </View>
 
                         <TouchableOpacity

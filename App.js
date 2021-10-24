@@ -5,6 +5,7 @@ import { MainNavigator } from './navigation';
 import store from './store';
 import { init } from './db';
 
+
 init()
   .then(() => console.log('La base de datos funciona'))
   .catch(err => {

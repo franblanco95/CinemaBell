@@ -13,7 +13,7 @@ export const PeliculaReducer = (state = initialState, action) => {
         case SELECT_PELICULA:
             return {
                 ...state,
-                selectedID: action.selectedID,
+                selectedID: action.peliculaId,
             }
         default:
             return state;

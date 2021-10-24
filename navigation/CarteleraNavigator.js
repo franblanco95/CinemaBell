@@ -3,6 +3,7 @@ import { Platform } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { CarteleraScreen } from '../screens/CarteleraScreen/CarteleraScreen';
 import { PeliculaScreen } from '../screens/PeliculaScreen/PeliculaScreen';
+import { EstrenoScreen } from '../screens/EstrenoScreen/EstrenoScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -31,7 +32,14 @@ const CarteleraStackNavigator = () => (
         <Stack.Screen
             name="Pelicula"
             component={PeliculaScreen}
-            options={({ route }) => ({ title: route.params.name })} />
+            options={({ route }) => ({ title: route.params.name })}
+        />
+
+        <Stack.Screen
+            name="Estreno"
+            component={EstrenoScreen}
+            options={({ route }) => ({ title: route.params.name })}
+        />
 
     </Stack.Navigator>
 

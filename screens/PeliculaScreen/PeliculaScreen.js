@@ -3,10 +3,10 @@ import { useSelector } from 'react-redux'
 import { StyleSheet, View, ScrollView, Text, Image, ActivityIndicator, TouchableOpacity } from 'react-native';
 import { AirbnbRating } from 'react-native-ratings';
 
-export const PeliculaScreen = ({ route }) => {
+export const PeliculaScreen = () => {
 
-
-    const pelicula = useSelector(state => state.peliculas.list.find((pelicula) => pelicula.id === route.params.id));
+    const peliculaId = useSelector(state => state.peliculas.selectedID)
+    const pelicula = useSelector(state => state.peliculas.list.find(item => item.id === peliculaId))
 
     return (
         <ScrollView style={{ flex: 1 }}>
@@ -56,7 +56,7 @@ export const PeliculaScreen = ({ route }) => {
 
                 <TouchableOpacity
                     style={styles.touchableStyle}
-                    onPress={() => console.log('prueba')}
+                    onPress={() => console.log('Entrada comprada con éxito')}
                 >
                     <Text style={styles.touchableText}>Comprar Ticket | $ {pelicula.price}</Text>
                 </TouchableOpacity>
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
     },
     touchableStyle: {
         alignItems: "center",
-        backgroundColor: 'rgb(79, 77, 155)',
+        backgroundColor: '#e33e38',
         padding: 15,
         borderRadius: 10,
         marginHorizontal: 15,

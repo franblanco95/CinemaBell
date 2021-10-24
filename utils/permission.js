@@ -23,5 +23,7 @@ export const loadImageFromGallery = async (array) => {
         aspect: array,
         quality: 0.8,
     })
-    console.log(image)
+    return (image)
 }
+
+

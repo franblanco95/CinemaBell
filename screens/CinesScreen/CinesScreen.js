@@ -40,11 +40,6 @@ export const CinesScreen = () => {
         // {/* <LocationSelector onLocation={handlePickLocation} /> */}
         <View style={styles.container}>
 
-            <Text></Text>
-
-
-
-
             <MapView
                 initialRegion={initialRegion}
                 style={styles.map}
@@ -59,6 +54,9 @@ export const CinesScreen = () => {
                 />
 
             </MapView>
+
+            <Text style={styles.mainText}>Dirección</Text>
+            <Text style={styles.text}>473 N° 3949, City Bell</Text>
         </View>
 
 
@@ -72,8 +70,19 @@ const styles = StyleSheet.create({
         backgroundColor: '#16191e',
         alignItems: 'center',
     },
+    mainText: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: 'rgb(135, 206, 250)',
+    },
+    text: {
+        paddingBottom: 5,
+        color: 'white',
+        borderBottomWidth: 1,
+        borderBottomColor: 'rgba(255, 255,255,0.5)'
+    },
     map: {
-        marginTop: 25,
+        marginVertical: 15,
         width: Dimensions.get('window').width - 60,
         height: Dimensions.get('window').height - 250,
     }

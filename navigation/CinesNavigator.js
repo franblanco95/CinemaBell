@@ -3,7 +3,6 @@ import { Platform } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { CinesScreen } from '../screens/CinesScreen/CinesScreen';
 
-
 const Stack = createNativeStackNavigator();
 
 const CinesStackNavigator = () => (
