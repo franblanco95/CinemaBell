@@ -10,9 +10,8 @@ export const FuturosEstrenos = ({ estrenos, navigation }) => {
 
     const HandleSelectedEstreno = (estrenos) => {
         dispatch(selectEstreno(estrenos.id));
-        navigation.navigate('Estreno', {
+        navigation.navigate('Futuros Estrenos', {
             id: estrenos.id,
-            name: `${estrenos.name}`
         })
     }
 

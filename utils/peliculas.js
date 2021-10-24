@@ -24,7 +24,7 @@ export const peliculas = [
     duracion: '1h 25min',
     trailer: 'watch?v=MxSIK-jngVA',
     star: 2,
-    synopsis: 'El ex militar ciego que causó estragos en la primera entrega, volverá a verse envuelto en problemas. En aquella ocasión el hombre consiguió acabar de manera violenta con algunos de los jóvenes que tratan de entrar a robar a su hogar. Ahora, parece que un grupo de amigos ha entrado en su casa, pero con intenciones bien diferentes: van a tratar de tomarse venganza por sus malogrados colegas, en el asalto tiempo atrás.',
+    synopsis: 'En medio de un hermoso bosque, lleno de quietud y armonía, una familia lleva su día a día con la mayor normalidad posible, pero en absoluto silencio. Sin embargo, después de que un pequeño accidente en casa provoca un ruido, todos se aterran y escuchan cómo algo allá afuera se acerca a su hogar, de forma amenazante.',
   },
   {
     id: '3',
@@ -37,7 +37,7 @@ export const peliculas = [
     duracion: '1h 52min',
     trailer: 'watch?v=rKCalYEKors',
     star: 4,
-    synopsis: 'El ex militar ciego que causó estragos en la primera entrega, volverá a verse envuelto en problemas. En aquella ocasión el hombre consiguió acabar de manera violenta con algunos de los jóvenes que tratan de entrar a robar a su hogar. Ahora, parece que un grupo de amigos ha entrado en su casa, pero con intenciones bien diferentes: van a tratar de tomarse venganza por sus malogrados colegas, en el asalto tiempo atrás.',
+    synopsis: 'El hijo pequeño de Sarah desaparece una noche entre la maleza de su casa. Aunque cuando el pequeño regresa todo parece normal, al poco tiempo su comportamiento empieza a cambiar y ser más errático. ¿Será este realmente el hijo de Sarah?',
   },
   {
     id: '4',
@@ -50,7 +50,7 @@ export const peliculas = [
     duracion: '1h 48min',
     trailer: 'watch?v=y2S9VzDDdM8',
     star: 5,
-    synopsis: 'El ex militar ciego que causó estragos en la primera entrega, volverá a verse envuelto en problemas. En aquella ocasión el hombre consiguió acabar de manera violenta con algunos de los jóvenes que tratan de entrar a robar a su hogar. Ahora, parece que un grupo de amigos ha entrado en su casa, pero con intenciones bien diferentes: van a tratar de tomarse venganza por sus malogrados colegas, en el asalto tiempo atrás.',
+    synopsis: 'Sospechando que el niño podría estar poseído por una fuerza paranormal y temiendo por la seguridad de su familia, Sarah deberá decidir entre su instinto maternal, que le anima a proteger al niño, y una necesidad desesperada por investigar la razón por la cual Miles ha realizado este oscuro cambio.',
   },
   {
     id: '5',
@@ -63,7 +63,7 @@ export const peliculas = [
     duracion: '2h 12min',
     trailer: 'watch?v=bBRAseMeAIU',
     star: 1,
-    synopsis: 'El ex militar ciego que causó estragos en la primera entrega, volverá a verse envuelto en problemas. En aquella ocasión el hombre consiguió acabar de manera violenta con algunos de los jóvenes que tratan de entrar a robar a su hogar. Ahora, parece que un grupo de amigos ha entrado en su casa, pero con intenciones bien diferentes: van a tratar de tomarse venganza por sus malogrados colegas, en el asalto tiempo atrás.',
+    synopsis: 'Años 80. Ed y Lorraine Warren se enfrentan a un nuevo caso de la mano de un hombre, Arne Cheyne Johnson, acusado de un terrible asesinato tras haber sido poseído por un demonio.',
   },
   {
     id: '6',
@@ -76,6 +76,6 @@ export const peliculas = [
     duracion: '1h 55min',
     trailer: 'watch?v=oTkl2wz-TnQ',
     star: 3,
-    synopsis: 'El ex militar ciego que causó estragos en la primera entrega, volverá a verse envuelto en problemas. En aquella ocasión el hombre consiguió acabar de manera violenta con algunos de los jóvenes que tratan de entrar a robar a su hogar. Ahora, parece que un grupo de amigos ha entrado en su casa, pero con intenciones bien diferentes: van a tratar de tomarse venganza por sus malogrados colegas, en el asalto tiempo atrás.',
+    synopsis: 'La familia Abbott ahora se enfrenta a los terrores del mundo exterior. Forzados a aventurarse en lo desconocido, se dan cuenta de que las criaturas que cazan por el sonido no son las únicas amenazas que acechan más allá del camino de arena.',
   }
 ]

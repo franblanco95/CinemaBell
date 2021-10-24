@@ -63,7 +63,7 @@ export const ProfileScreen = () => {
                                 : require('../../assets/default-avatar.jpg')
                         }
                     />
-                    <Text style={styles.text}>{user.users[0].displayName}</Text>
+                    <Text style={styles.nameText}>{user.users[0].displayName}</Text>
 
                     <View style={styles.configContainer}>
 
@@ -82,7 +82,7 @@ export const ProfileScreen = () => {
                         <TouchableOpacity
                             style={styles.closeSessionButton}
                             onPress={closeSession}>
-                            <Text style={styles.text}>Cerrar Sesión</Text>
+                            <Text style={styles.closeSessionText}>Cerrar Sesión</Text>
                         </TouchableOpacity>
                     </View>
                 </>
@@ -101,19 +101,21 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     avatar: {
-
-    },
-    avatar: {
         width: 100,
         height: 100,
         marginVertical: 15,
+    },
+    nameText: {
+        color: 'white',
+        fontWeight: 'bold',
+        fontSize: 17,
+        marginBottom: 20,
     },
     text: {
         color: 'white',
     },
     configContainer: {
-        height: Dimensions.get('window').height - 300,
-        justifyContent: 'space-between',
+        height: '100%',
     },
     item: {
         flexDirection: 'row',
@@ -128,10 +130,12 @@ const styles = StyleSheet.create({
     closeSessionButton: {
         alignItems: 'center',
         backgroundColor: '#e33e38',
-        width: Dimensions.get('window').width - 50,
         padding: 15,
         borderRadius: 10,
         marginVertical: 5,
-
+    },
+    closeSessionText: {
+        color: 'white',
+        fontWeight: 'bold',
     }
 })

@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux'
-import { StyleSheet, View, ScrollView, Text, Image, ActivityIndicator, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, ScrollView, Text, Image, ActivityIndicator, TouchableOpacity, Modal, Pressable, Alert } from 'react-native';
 import { AirbnbRating } from 'react-native-ratings';
 
 export const PeliculaScreen = () => {
+
+    const [modalVisible, setModalVisible] = useState(false);
 
     const peliculaId = useSelector(state => state.peliculas.selectedID)
     const pelicula = useSelector(state => state.peliculas.list.find(item => item.id === peliculaId))
@@ -53,10 +55,35 @@ export const PeliculaScreen = () => {
                 <Text style={styles.subtitle}>Synopsis</Text>
                 <Text style={styles.text}>{pelicula.synopsis}</Text>
 
+                <View style={styles.centeredView}>
+                    <Modal
+                        animationType="fade"
+                        transparent={true}
+                        visible={modalVisible}
+                        onRequestClose={() => {
+                            Alert.alert("Modal has been closed.");
+                            setModalVisible(!modalVisible);
+                        }}
+                    >
+                        <View style={styles.centeredView}>
+                            <View style={styles.modalView}>
+                                <Text style={styles.modalText}>Entrada comprada con éxito!</Text>
+                                <Pressable
+                                    style={[styles.button, styles.buttonClose]}
+                                    onPress={() => setModalVisible(!modalVisible)}
+                                >
+                                    <Text style={styles.textStyle}>Cerrar</Text>
+                                </Pressable>
+                            </View>
+                        </View>
+                    </Modal>
+
+                </View>
+
 
                 <TouchableOpacity
                     style={styles.touchableStyle}
-                    onPress={() => console.log('Entrada comprada con éxito')}
+                    onPress={() => setModalVisible(!modalVisible)}
                 >
                     <Text style={styles.touchableText}>Comprar Ticket | $ {pelicula.price}</Text>
                 </TouchableOpacity>
@@ -121,4 +148,45 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: 'white',
     },
+    centeredView: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: 22
+    },
+    modalView: {
+        margin: 20,
+        backgroundColor: "white",
+        borderRadius: 10,
+        padding: 35,
+        alignItems: "center",
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5
+    },
+    button: {
+        borderRadius: 10,
+        padding: 10,
+        elevation: 2
+    },
+    buttonOpen: {
+        backgroundColor: "#F194FF",
+    },
+    buttonClose: {
+        backgroundColor: "#e33e38",
+    },
+    textStyle: {
+        color: "white",
+        fontWeight: "bold",
+        textAlign: "center"
+    },
+    modalText: {
+        marginBottom: 15,
+        textAlign: "center"
+    }
 });

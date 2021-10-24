@@ -36,9 +36,9 @@ const CarteleraStackNavigator = () => (
         />
 
         <Stack.Screen
-            name="Estreno"
+            name="Futuros Estrenos"
             component={EstrenoScreen}
-            options={({ route }) => ({ title: route.params.name })}
+
         />
 
     </Stack.Navigator>
