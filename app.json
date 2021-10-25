@@ -22,7 +22,7 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.franblanco.cine",
+      "bundleIdentifier": "com.franblanco.cinemabell",
       "buildNumber": "1.0.0"
     },
     "android": {
@@ -30,11 +30,11 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.franblanco.cine",
+      "package": "com.franblanco.cinemabell",
       "versionCode": 1,
       "permissions": [
-        "CAMERA_ROLL",
-        "READ_EXTERNAL_STOREAGE",
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
         "WRITE_EXTERNAL_STORAGE"
       ],
       "config": {}
