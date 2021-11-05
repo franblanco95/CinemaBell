@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Switch, Dimensions, TouchableOpacity, ActivityI
 import { Avatar } from 'react-native-elements';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout, lookupUser } from '../../store/actions/auth.actions';
+import { imageFirebase } from '../../store/actions/image.actions';
 import { ToggleTheme } from '../../store/actions/theme.action';
 import { loadImageFromGallery } from '../../utils/permission';
 // import * as FileSystem from 'expo-file-system'
@@ -11,10 +12,10 @@ export const ProfileScreen = () => {
 
     const dispatch = useDispatch();
 
-    const theme = useSelector((themeReducer) => themeReducer);
     const [value, setValue] = useState(theme)
     const [imagen, setImagen] = useState()
 
+    const theme = useSelector(state => state.theme);
     const user = useSelector(state => state.auth.data)
     const token = useSelector(state => state.auth.token)
 
@@ -22,11 +23,11 @@ export const ProfileScreen = () => {
         dispatch(lookupUser(token))
     }, [])
 
-    // console.log(user)
-
     const changePhoto = async () => {
         const result = await loadImageFromGallery([1, 1])
-        setImagen(result.uri)
+        const fotoPerfil = result.uri
+        dispatch(imageFirebase(token, fotoPerfil))
+        setImagen(fotoPerfil)
     }
 
     // Funcion para cambiar la direccion temporal por una persistente
@@ -76,8 +77,14 @@ export const ProfileScreen = () => {
                                 trackColor={{ false: "#767577", true: "#ffffff" }}
                                 ios_backgroundColor="#3e3e3e"
                             />
-                            {/* {console.log(theme)} */}
+
                         </View>
+                        <View style={styles.item}>
+                            <Text>Modo: {theme.modo}</Text>
+
+
+                        </View>
+
 
                         <TouchableOpacity
                             style={styles.closeSessionButton}

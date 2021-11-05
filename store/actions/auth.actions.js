@@ -75,9 +75,11 @@ export const login = (email, password) => {
         if (!response.ok) {
             const errorResponse = await response.json();
             const errorID = errorResponse.error.message;
+            console.log(`linea 78 ${errorID}`)
 
             let message = 'No se ha podido ingresar';
             if (errorID === 'EMAIL_NOT_FOUND') message = 'Este email no se encuentra registrado';
+            if (errorID === 'INVALID_PASSWORD') message = 'Contraseña Incorrecta';
 
             throw new error(message);
         }
