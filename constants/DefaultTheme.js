@@ -1,8 +1,8 @@
-
-export const lightTheme = {
+export const DefaultTheme = {
+    dark: false,
     colors: {
         primary: 'rgb(255, 45, 85)',
-        background: 'rgb(0, 255, 0)',
+        background: 'rgb(255, 255, 255)',
         card: 'rgb(255, 255, 255)',
         text: 'rgb(0, 0, 0)',
         border: 'rgb(199, 199, 204)',

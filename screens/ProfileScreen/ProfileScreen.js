@@ -69,7 +69,7 @@ export const ProfileScreen = () => {
                     <View style={styles.configContainer}>
 
                         <View style={styles.item}>
-                            <Text style={styles.text}>Modo Nocturno (En Proceso)</Text>
+                            <Text style={styles.text}>Dark Mode</Text>
                             <Switch
                                 value={value}
                                 onValueChange={(val) => { setValue(val); dispatch(ToggleTheme(val)) }}
@@ -80,9 +80,13 @@ export const ProfileScreen = () => {
 
                         </View>
                         <View style={styles.item}>
-                            <Text>Modo: {theme.modo}</Text>
-
-
+                            <Text style={styles.text}>Cambiar Contraseña</Text>
+                        </View>
+                        <View style={styles.item}>
+                            <Text style={styles.text}>Lenguaje:</Text>
+                        </View>
+                        <View style={styles.item}>
+                            <Text style={styles.text}>Version</Text>
                         </View>
 
 
@@ -104,7 +108,6 @@ export const ProfileScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#16191e',
         alignItems: 'center',
     },
     avatar: {

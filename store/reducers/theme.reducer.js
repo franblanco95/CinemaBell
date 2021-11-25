@@ -10,12 +10,12 @@ export const themeReducer = (state = initialState, action) => {
         case DARK_THEME:
             return {
                 theme: true,
-                modo: 'Oscuro Activado'
+                modo: 'dark'
             };
         case LIGHT_THEME:
             return {
                 theme: false,
-                modo: 'Light Activado'
+                modo: 'light'
             };
         default:
             return state;

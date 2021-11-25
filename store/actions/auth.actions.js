@@ -136,7 +136,7 @@ export const lookupUser = (token) => {
     }
 }
 
-
+// Para desconectar usuario
 export const logout = () => {
     return async dispatch => {
         const token = await AsyncStorage.removeItem('@token')
@@ -147,6 +147,35 @@ export const logout = () => {
             token,
             userId,
         });
+    }
+}
+
+export const changePassword = (name, idToken, password) => {
+    return async dispatch => {
+        const response = await fetch(URL_AUTH_API, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                idToken,
+                password,
+                returnSecureToken: true,
+            }),
+        });
+
+        if (!response.ok) {
+            const errorResponse = await response.json();
+            const errorID = errorResponse.error.message;
+
+            let message = 'No se ha podido registrar';
+            if (errorID === 'EMAIL_EXISTS') message = 'Este email ya está registrado';
+
+            throw new error(message);
+        }
+
+        const data = await response.json();
+        console.log(data)
     }
 }
 

@@ -45,7 +45,7 @@ export const FoodScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#16191e',
+        // backgroundColor: '#16191e',
         alignItems: 'center',
     },
     flatlist: {

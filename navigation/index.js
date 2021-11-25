@@ -4,10 +4,8 @@ import TabNavigator from './TabNavigator';
 import LoginStackNavigator from './LoginNavigator';
 import { useDispatch, useSelector } from 'react-redux'
 import { initAuthentication } from '../store/actions/auth.actions';
-import { useColorScheme } from 'react-native';
-import { darkTheme } from '../constants/darkTheme';
-import { lightTheme } from '../constants/lightTheme';
-
+import { DarkTheme } from '../constants/DarkTheme';
+import { DefaultTheme } from '../constants/DefaultTheme';
 
 export const MainNavigator = () => {
 
@@ -19,11 +17,10 @@ export const MainNavigator = () => {
         dispatch(initAuthentication())
     }, [])
 
-    const scheme = useColorScheme()
+    const colorScheme = useSelector(state => state.theme.modo)
 
     return (
-
-        <NavigationContainer theme={scheme === 'dark' ? darkTheme : lightTheme}>
+        <NavigationContainer theme={colorScheme == 'dark' ? DarkTheme : DefaultTheme}>
 
             {userId
                 ?
